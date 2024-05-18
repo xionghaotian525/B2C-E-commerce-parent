@@ -1,7 +1,7 @@
 package com.xionghaotian.vo.h5;
 
-import com.atguigu.spzx.model.entity.product.Category;
-import com.atguigu.spzx.model.entity.product.ProductSku;
+import com.xionghaotian.entity.product.Category;
+import com.xionghaotian.entity.product.ProductSku;
 import lombok.Data;
 
 import java.util.List;

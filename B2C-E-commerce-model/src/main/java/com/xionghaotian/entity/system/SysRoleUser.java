@@ -1,6 +1,6 @@
 package com.xionghaotian.entity.system;
 
-import com.atguigu.spzx.model.entity.base.BaseEntity;
+import com.xionghaotian.entity.base.BaseEntity;
 import lombok.Data;
 
 @Data

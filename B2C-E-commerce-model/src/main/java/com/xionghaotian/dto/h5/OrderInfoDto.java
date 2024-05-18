@@ -1,6 +1,6 @@
 package com.xionghaotian.dto.h5;
 
-import com.atguigu.spzx.model.entity.order.OrderItem;
+import com.xionghaotian.entity.order.OrderItem;
 import lombok.Data;
 
 import java.math.BigDecimal;

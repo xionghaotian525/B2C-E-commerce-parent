@@ -1,6 +1,6 @@
 package com.xionghaotian.entity.user;
 
-import com.atguigu.spzx.model.entity.base.BaseEntity;
+import com.xionghaotian.entity.base.BaseEntity;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 

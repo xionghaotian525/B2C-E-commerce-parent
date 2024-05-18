@@ -1,6 +1,6 @@
 package com.xionghaotian.entity.order;
 
-import com.atguigu.spzx.model.entity.base.BaseEntity;
+import com.xionghaotian.entity.base.BaseEntity;
 import lombok.Data;
 
 import java.math.BigDecimal;
