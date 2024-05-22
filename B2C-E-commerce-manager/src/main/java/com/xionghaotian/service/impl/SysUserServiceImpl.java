@@ -3,9 +3,12 @@ package com.xionghaotian.service.impl;
 import com.alibaba.fastjson.JSON;
 import com.xionghaotian.dto.system.LoginDto;
 import com.xionghaotian.entity.system.SysUser;
+import com.xionghaotian.exception.GuiguException;
 import com.xionghaotian.mapper.SysUserMapper;
 import com.xionghaotian.service.SysUserService;
+import com.xionghaotian.vo.common.ResultCodeEnum;
 import com.xionghaotian.vo.system.LoginVo;
+import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
@@ -27,7 +30,7 @@ public class SysUserServiceImpl implements SysUserService {
     @Autowired
     private SysUserMapper sysUserMapper ;
 
-    @Autowired
+    @Resource
     private RedisTemplate<String , String> redisTemplate ;
 
     @Override
@@ -36,14 +39,16 @@ public class SysUserServiceImpl implements SysUserService {
         // 根据用户名查询用户
         SysUser sysUser = sysUserMapper.selectByUserName(loginDto.getUserName());
         if(sysUser == null) {
-            throw new RuntimeException("用户名或者密码错误") ;
+//            throw new RuntimeException("用户名或者密码错误") ;
+            throw new GuiguException(ResultCodeEnum.LOGIN_ERROR);
         }
 
         // 验证密码是否正确
         String inputPassword = loginDto.getPassword();
         String md5InputPassword = DigestUtils.md5DigestAsHex(inputPassword.getBytes());
         if(!md5InputPassword.equals(sysUser.getPassword())) {
-            throw new RuntimeException("用户名或者密码错误") ;
+//            throw new RuntimeException("用户名或者密码错误") ;
+            throw new GuiguException(ResultCodeEnum.LOGIN_ERROR);
         }
 
         // 生成令牌，保存数据到Redis中
