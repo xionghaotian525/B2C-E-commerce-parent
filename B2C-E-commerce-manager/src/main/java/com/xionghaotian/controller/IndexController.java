@@ -1,6 +1,7 @@
 package com.xionghaotian.controller;
 
 import com.xionghaotian.dto.system.LoginDto;
+import com.xionghaotian.entity.system.SysUser;
 import com.xionghaotian.service.SysUserService;
 import com.xionghaotian.service.ValidateCodeService;
 import com.xionghaotian.vo.common.Result;
@@ -33,6 +34,7 @@ public class IndexController {
     private ValidateCodeService validateCodeService ;
 
     //生成图片验证码
+    @Operation(summary = "生成图片验证码")
     @GetMapping(value = "/generateValidateCode")
     public Result<ValidateCodeVo> generateValidateCode() {
         ValidateCodeVo validateCodeVo = validateCodeService.generateValidateCode();
@@ -44,6 +46,17 @@ public class IndexController {
     public Result<LoginVo> login(@RequestBody LoginDto loginDto) {
         LoginVo loginVo = sysUserService.login(loginDto) ;
         return Result.build(loginVo , ResultCodeEnum.SUCCESS) ;
+    }
+
+    //获取用户信息接口
+    //1.从请求头获取token
+    //2.根据token去查询redis获取用户信息
+    //3.用户信息返回
+    @Operation(summary = "获取用户信息接口")
+    @GetMapping(value = "/getUserInfo")
+    public Result<SysUser> getUserInfo(@RequestHeader(name = "token") String token) {
+        SysUser sysUser = sysUserService.getUserInfo(token) ;
+        return Result.build(sysUser , ResultCodeEnum.SUCCESS) ;
     }
 
 }

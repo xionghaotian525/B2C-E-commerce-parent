@@ -24,6 +24,12 @@ public class ValidateCodeServiceImpl implements com.xionghaotian.service.Validat
     @Resource
     private RedisTemplate<String , String> redisTemplate ;
 
+    /**
+     * 生成验证码并返回其相关信息的Vo对象。
+     * 该方法不接受任何参数。
+     *
+     * @return ValidateCodeVo 验证码信息的Vo对象，包含验证码的key和base64编码的图片数据。
+     */
     @Override
     public ValidateCodeVo generateValidateCode() {
 

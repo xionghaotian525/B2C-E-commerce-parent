@@ -34,6 +34,11 @@ public class SysUserServiceImpl implements SysUserService {
     @Resource
     private RedisTemplate<String , String> redisTemplate ;
 
+    /**
+     * 用户登录
+     * @param loginDto 登录传输对象，包含用户名、密码、验证码和验证码键名
+     * @return LoginVo 登录响应对象，包含令牌和刷新令牌
+     */
     @Override
     public LoginVo login(LoginDto loginDto) {
 
@@ -79,4 +84,19 @@ public class SysUserServiceImpl implements SysUserService {
         // 返回
         return loginVo;
     }
+
+    /**
+     * 根据token获取用户信息。
+     *
+     * @param token 用户登录时获取的令牌，用于识别用户身份。
+     * @return SysUser 返回用户系统信息的对象。
+     */
+    @Override
+    public SysUser getUserInfo(String token) {
+        // 从Redis中根据token获取用户信息的JSON字符串
+        String userJson = redisTemplate.opsForValue().get("user:login:" + token);
+        // 将JSON字符串解析为SysUser对象
+        return JSON.parseObject(userJson , SysUser.class) ;
+    }
+
 }

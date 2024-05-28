@@ -1,6 +1,7 @@
 package com.xionghaotian.service;
 
 import com.xionghaotian.dto.system.LoginDto;
+import com.xionghaotian.entity.system.SysUser;
 import com.xionghaotian.vo.system.LoginVo;
 
 /**
@@ -16,5 +17,11 @@ public interface SysUserService {
      * @return
      */
     public abstract LoginVo login(LoginDto loginDto) ;
+
+    /**
+     * 根据token获取用户信息
+     * @return
+     */
+    SysUser getUserInfo(String token);
 }
 
