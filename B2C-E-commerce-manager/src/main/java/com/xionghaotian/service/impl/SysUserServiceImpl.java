@@ -99,4 +99,17 @@ public class SysUserServiceImpl implements SysUserService {
         return JSON.parseObject(userJson , SysUser.class) ;
     }
 
+    /**
+     * 用户登出功能。
+     * 通过给定的token从Redis中删除对应的登录记录，实现用户登出。
+     *
+     * @param token 用户的登录令牌，用于唯一标识一个登录会话。
+     */
+    @Override
+    public void logout(String token) {
+        // 从Redis中删除指定token的登录记录
+        redisTemplate.delete("user:login:" + token) ;
+    }
+
+
 }

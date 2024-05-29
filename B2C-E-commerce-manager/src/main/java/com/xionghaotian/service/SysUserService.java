@@ -23,5 +23,7 @@ public interface SysUserService {
      * @return
      */
     SysUser getUserInfo(String token);
+
+    void logout(String token);
 }
 
