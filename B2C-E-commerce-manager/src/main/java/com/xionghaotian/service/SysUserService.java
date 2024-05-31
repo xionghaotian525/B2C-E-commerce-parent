@@ -14,16 +14,18 @@ import com.xionghaotian.vo.system.LoginVo;
 public interface SysUserService {
     /**
      * 根据用户名查询用户数据
-     * @return
      */
     public abstract LoginVo login(LoginDto loginDto) ;
 
     /**
      * 根据token获取用户信息
-     * @return
      */
     SysUser getUserInfo(String token);
 
+    /**
+     * 用户登出功能。
+     */
     void logout(String token);
+
 }
 
