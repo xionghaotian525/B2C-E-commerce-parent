@@ -29,3 +29,6 @@ project:
       - /admin/system/index/login
       - /admin/system/index/generateValidateCode
       - /admin/system/index/logout
+      - /doc.html
+      - /webjars/**
+      - /v3/**
