@@ -34,4 +34,10 @@ public class SysRoleController {
         return Result.build(pageInfo , ResultCodeEnum.SUCCESS) ;
     }
 
+    @Operation(summary = "新增系统角色接口")
+    @PostMapping("/saveSysRole")
+    public Result saveSysRole(@RequestBody SysRole sysRole) {
+        sysRoleService.saveSysRole(sysRole) ;
+        return Result.build(null , ResultCodeEnum.SUCCESS) ;
+    }
 }
