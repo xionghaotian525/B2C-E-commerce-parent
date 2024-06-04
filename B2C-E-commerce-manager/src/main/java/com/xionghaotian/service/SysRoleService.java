@@ -14,7 +14,7 @@ import com.xionghaotian.entity.system.SysRole;
 // 业务接口
 public interface SysRoleService {
     /**
-     * 分页查询获取角色列表。
+     * 分页查询获取角色列表（搜索功能）。
      *
      * 本方法为抽象方法，具体实现由子类完成。它提供了一个通用的框架，用于根据SysRoleDto对象中的条件，
      * 以及指定的页码和每页大小来查询SysRole对象的分页信息。

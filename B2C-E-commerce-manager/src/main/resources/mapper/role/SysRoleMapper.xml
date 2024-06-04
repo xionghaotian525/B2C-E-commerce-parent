@@ -19,6 +19,7 @@
         </where>
     </sql>
 
+    <!-- 分页查询角色列表(搜索功能) -->
     <select id="findByPage" resultMap="sysRoleMap">
         select <include refid="columns" />
         from sys_role

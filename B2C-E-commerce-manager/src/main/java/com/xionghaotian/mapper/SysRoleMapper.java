@@ -16,7 +16,7 @@ import java.util.List;
 @Mapper
 public interface SysRoleMapper {
     /**
-     * 根据条件分页查询系统角色信息。
+     * 根据条件分页查询系统角色信息（搜索功能）。
      *
      * 本方法是一个抽象方法，具体实现由子类提供。它旨在通过SysRoleDto对象中的条件，
      * 查询数据库中的SysRole对象，并以分页的形式返回查询结果。

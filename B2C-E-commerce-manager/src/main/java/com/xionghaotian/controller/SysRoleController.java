@@ -25,7 +25,7 @@ public class SysRoleController {
     @Autowired
     private SysRoleService sysRoleService ;
 
-    @Operation(summary = "分页查询获取角色列表接口")
+    @Operation(summary = "分页查询获取角色列表接口(搜索功能)")
     @PostMapping("/findByPage/{pageNum}/{pageSize}")
     public Result<PageInfo<SysRole>> findByPage(@RequestBody SysRoleDto sysRoleDto ,
                                                 @PathVariable(value = "pageNum") Integer pageNum ,

@@ -27,7 +27,7 @@ public class SysRoleServiceImpl implements SysRoleService {
     private SysRoleMapper sysRoleMapper ;
 
     /**
-     * 根据条件分页查询系统角色信息。
+     * 根据条件分页查询系统角色信息（搜索功能）。
      *
      * 本方法实现了对系统角色数据的分页查询，根据提供的条件对象SysRoleDto和分页参数pageNum和pageSize，
      * 调用SysRoleMapper的findByPage方法进行查询，并返回查询结果的分页信息。
