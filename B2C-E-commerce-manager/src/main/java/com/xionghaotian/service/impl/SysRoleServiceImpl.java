@@ -50,4 +50,17 @@ public class SysRoleServiceImpl implements SysRoleService {
 
         return pageInfo;
     }
+
+    /**
+     * 添加系统角色信息。
+     *
+     * 本方法通过调用sysRoleMapper的saveSysRole方法，来实现系统角色的保存操作。
+     * 主要用于将系统角色对象持久化到数据库中。
+     *
+     * @param sysRole 待保存的系统角色对象，包含角色的相关信息。
+     */
+    @Override
+    public void saveSysRole(SysRole sysRole) {
+        sysRoleMapper.saveSysRole(sysRole) ;
+    }
 }

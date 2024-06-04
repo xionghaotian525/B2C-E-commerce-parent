@@ -25,4 +25,15 @@ public interface SysRoleService {
      * @return PageInfo<SysRole> 分页查询结果，包含SysRole对象的列表以及分页信息。
      */
     public abstract PageInfo<SysRole> findByPage(SysRoleDto sysRoleDto, Integer pageNum, Integer pageSize);
+
+    /**
+     * 添加系统角色信息。
+     *
+     * 此方法是一个抽象方法，需要在子类中具体实现添加系统角色的逻辑。
+     * 它的目的是为了在系统中保存SysRole对象的信息，可能是插入新角色信息，
+     * 或者更新已存在的角色信息。具体的保存逻辑依赖于实现该方法的子类。
+     *
+     * @param sysRole 待保存的系统角色对象，包含角色的相关信息。
+     */
+    public abstract void saveSysRole(SysRole sysRole);
 }
