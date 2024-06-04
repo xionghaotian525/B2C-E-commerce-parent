@@ -2,8 +2,31 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/B2C-E-commerce-common/common-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/B2C-E-commerce-common/common-service/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/B2C-E-commerce-common/common-util/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/B2C-E-commerce-common/common-util/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/B2C-E-commerce-common/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/B2C-E-commerce-common/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/B2C-E-commerce-gateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/B2C-E-commerce-gateway/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/B2C-E-commerce-manager/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/B2C-E-commerce-manager/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/B2C-E-commerce-model/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/B2C-E-commerce-model/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/B2C-E-commerce-service-client/service-cart-client/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/B2C-E-commerce-service-client/service-order-client/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/B2C-E-commerce-service-client/service-product-client/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/B2C-E-commerce-service-client/service-user-client/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/B2C-E-commerce-service-client/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/B2C-E-commerce-service-client/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/B2C-E-commerce-service/service-cart/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/B2C-E-commerce-service/service-order/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/B2C-E-commerce-service/service-pay/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/B2C-E-commerce-service/service-product/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/B2C-E-commerce-service/service-user/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/B2C-E-commerce-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/B2C-E-commerce-service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
   </component>
 </project>

@@ -7,11 +7,41 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="B2C-E-commerce-manager" />
-        <module name="B2C-E-commerce-model" />
         <module name="common-util" />
+        <module name="service-product-client" />
         <module name="common-service" />
+        <module name="service-order-client" />
+        <module name="service-user-client" />
+        <module name="B2C-E-commerce-gateway" />
+        <module name="service-order" />
+        <module name="service-pay" />
+        <module name="B2C-E-commerce-manager" />
+        <module name="service-user" />
+        <module name="service-product" />
+        <module name="service-cart" />
+        <module name="B2C-E-commerce-model" />
+        <module name="service-cart-client" />
       </profile>
     </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="B2C-E-commerce-gateway" options="-parameters" />
+      <module name="B2C-E-commerce-manager" options="-parameters" />
+      <module name="B2C-E-commerce-model" options="-parameters" />
+      <module name="B2C-E-commerce-service" options="" />
+      <module name="B2C-E-commerce-service-client" options="" />
+      <module name="common-service" options="-parameters" />
+      <module name="common-util" options="-parameters" />
+      <module name="service-cart" options="-parameters" />
+      <module name="service-cart-client" options="-parameters" />
+      <module name="service-order" options="-parameters" />
+      <module name="service-order-client" options="-parameters" />
+      <module name="service-pay" options="-parameters" />
+      <module name="service-product" options="-parameters" />
+      <module name="service-product-client" options="-parameters" />
+      <module name="service-user" options="-parameters" />
+      <module name="service-user-client" options="-parameters" />
+    </option>
   </component>
 </project>
