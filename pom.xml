@@ -12,6 +12,10 @@
     <module>B2C-E-commerce-common</module>
     <module>B2C-E-commerce-model</module>
     <module>B2C-E-commerce-manager</module>
+      <module>B2C-E-commerce-gateway</module>
+    <module>B2C-E-commerce-service</module>
+    <module>B2C-E-commerce-service-client</module>
+    <module>B2C-E-commerce-service-client/service-user-client</module>
   </modules>
 
   <name>B2C-E-commerce-parent</name>
@@ -165,4 +169,13 @@
       </plugins>
     </pluginManagement>
   </build>
+
+  <!--  解决dependencies.dependency.version' for org.springframework.boot:spring-boot-configuration-processor:jar is missing.-->
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>3.0.5</version>
+  </parent>
+
+
 </project>
