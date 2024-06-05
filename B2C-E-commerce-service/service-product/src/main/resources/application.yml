@@ -1,0 +1,5 @@
+spring:
+  profiles:
+    active: dev	# 激活的环境文件
+  jackson:
+    time-zone: Asia/Shanghai
