@@ -36,4 +36,14 @@ public interface SysRoleService {
      * @param sysRole 待保存的系统角色对象，包含角色的相关信息。
      */
     public abstract void saveSysRole(SysRole sysRole);
+
+    /**
+     * 更新系统角色信息。
+     *
+     * 该方法用于更新数据库中已存在的系统角色的信息。通过接收一个SysRole对象作为参数，
+     * 将该对象中包含的角色信息更新到数据库对应的记录中。这涉及到可能的角色名称、权限或其他属性的更改。
+     *
+     * @param sysRole 包含需要更新的系统角色信息的对象。该对象中的信息将用于更新数据库中的相应记录。
+     */
+    public abstract void updateSysRole(SysRole sysRole);
 }

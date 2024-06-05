@@ -63,4 +63,16 @@ public class SysRoleServiceImpl implements SysRoleService {
     public void saveSysRole(SysRole sysRole) {
         sysRoleMapper.saveSysRole(sysRole) ;
     }
+
+    /**
+     * 更新系统角色信息。
+     * 通过调用SysRoleMapper的updateSysRole方法，更新传入的SysRole对象的信息。
+     * 此方法用于更新系统中已存在的角色信息，对角色的相关属性进行修改。
+     *
+     * @param sysRole 待更新的系统角色对象，包含新的角色信息。
+     */
+    @Override
+    public void updateSysRole(SysRole sysRole) {
+        sysRoleMapper.updateSysRole(sysRole) ;
+    }
 }

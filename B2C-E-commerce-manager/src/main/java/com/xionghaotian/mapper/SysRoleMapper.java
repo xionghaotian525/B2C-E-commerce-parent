@@ -36,4 +36,15 @@ public interface SysRoleMapper {
      * @param sysRole 待保存的系统角色对象，包含角色的相关信息。
      */
     public abstract void saveSysRole(SysRole sysRole);
+
+    /**
+     * 更新系统角色信息。
+     *
+     * 此方法是一个抽象方法，需要在子类中具体实现更新系统角色的逻辑。
+     * 它的目的是为了在系统中更新SysRole对象的信息，可能是更新角色名称，
+     * 角色描述等。具体的更新逻辑依赖于实现该方法的子类。
+     *
+     * @param sysRole 待更新的系统角色对象，包含角色的相关信息。
+     */
+    public abstract void updateSysRole(SysRole sysRole);
 }
