@@ -47,4 +47,16 @@ public interface SysRoleMapper {
      * @param sysRole 待更新的系统角色对象，包含角色的相关信息。
      */
     public abstract void updateSysRole(SysRole sysRole);
+
+    /**
+     * 根据角色ID删除角色信息（逻辑删除）。
+     *
+     * 本方法是一个抽象方法，具体实现由子类提供。其目的是通过角色的ID来删除相应的角色数据。
+     * 删除操作的细节，如如何访问数据库或处理其他资源，将在实现此方法的子类中定义。
+     *
+     * @param roleId 要删除的角色的ID。作为一个长整型值传递，用于唯一标识一个角色。
+     *               删除操作将基于此ID查找并删除相应的角色记录（本质上为逻辑删除，更新is_deleted值为1）。
+     */
+    public abstract void deleteById(Long roleId);
+
 }

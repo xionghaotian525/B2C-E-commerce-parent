@@ -75,4 +75,16 @@ public class SysRoleServiceImpl implements SysRoleService {
     public void updateSysRole(SysRole sysRole) {
         sysRoleMapper.updateSysRole(sysRole) ;
     }
+
+    /**
+     * 根据角色ID删除角色信息(逻辑删除)。
+     * 该方法通过调用sysRoleMapper的ById方法，传入角色ID来删除相应的角色数据。
+     * 删除操作是基于数据库的，因此需要确保传入的ID有效，且对应的角色数据存在。
+     *
+     * @param roleId 要删除的角色的ID。这是一个长整型的数值，代表了角色的唯一标识。
+     */
+    @Override
+    public void deleteSysRole(Long roleId) {
+        sysRoleMapper.deleteById(roleId) ;
+    }
 }

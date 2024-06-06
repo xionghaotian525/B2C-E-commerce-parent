@@ -47,4 +47,11 @@ public class SysRoleController {
         sysRoleService.updateSysRole(sysRole) ;
         return Result.build(null , ResultCodeEnum.SUCCESS) ;
     }
+
+    @Operation(summary = "删除系统角色接口")
+    @DeleteMapping(value = "/deleteById/{roleId}")
+    public Result deleteById(@PathVariable(value = "roleId") Long roleId) {
+        sysRoleService.deleteSysRole(roleId); ;
+        return Result.build(null , ResultCodeEnum.SUCCESS) ;
+    }
 }
