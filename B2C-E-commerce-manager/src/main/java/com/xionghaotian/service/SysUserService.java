@@ -1,6 +1,8 @@
 package com.xionghaotian.service;
 
+import com.github.pagehelper.PageInfo;
 import com.xionghaotian.dto.system.LoginDto;
+import com.xionghaotian.dto.system.SysUserDto;
 import com.xionghaotian.entity.system.SysUser;
 import com.xionghaotian.vo.system.LoginVo;
 
@@ -27,5 +29,9 @@ public interface SysUserService {
      */
     void logout(String token);
 
+    /**
+     * 分页查询获取用户列表接口(搜索功能)
+     */
+    public abstract PageInfo<SysUser> findByPage(SysUserDto sysUserDto, Integer pageNum, Integer pageSize);
 }
 

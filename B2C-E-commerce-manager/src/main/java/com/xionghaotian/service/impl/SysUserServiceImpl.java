@@ -2,7 +2,10 @@ package com.xionghaotian.service.impl;
 
 import cn.hutool.core.util.StrUtil;
 import com.alibaba.fastjson.JSON;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.xionghaotian.dto.system.LoginDto;
+import com.xionghaotian.dto.system.SysUserDto;
 import com.xionghaotian.entity.system.SysUser;
 import com.xionghaotian.exception.GuiguException;
 import com.xionghaotian.mapper.SysUserMapper;
@@ -15,6 +18,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
 
+import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
@@ -109,6 +113,32 @@ public class SysUserServiceImpl implements SysUserService {
     public void logout(String token) {
         // 从Redis中删除指定token的登录记录
         redisTemplate.delete("user:login:" + token) ;
+    }
+
+    /**
+     * 根据条件分页查询系统用户信息。
+     *
+     * 本方法实现了对系统用户数据的分页查询。通过接收SysUserDto对象和分页参数，
+     * 调用SysUserMapper的findByPage方法来执行查询，并返回查询结果的分页信息。
+     *
+     * @param sysUserDto 查询条件对象，包含对用户信息的过滤条件。
+     * @param pageNum 当前页码，用于指定查询的页数。
+     * @param pageSize 每页显示的记录数，用于控制分页大小。
+     * @return PageInfo<SysUser> 分页查询结果，包含用户信息列表和分页信息。
+     */
+    @Override
+    public PageInfo<SysUser> findByPage(SysUserDto sysUserDto, Integer pageNum, Integer pageSize) {
+        // 初始化分页插件，指定当前页码和每页记录数。
+        PageHelper.startPage(pageNum, pageSize);
+
+        // 根据查询条件和分页参数，调用SysUserMapper的findByPage方法查询用户信息。
+        List<SysUser> sysUserList = sysUserMapper.findByPage(sysUserDto);
+
+        // 使用查询结果列表创建PageInfo对象，包含详细的分页信息。
+        PageInfo pageInfo = new PageInfo(sysUserList);
+
+        // 返回分页查询结果。
+        return pageInfo;
     }
 
 

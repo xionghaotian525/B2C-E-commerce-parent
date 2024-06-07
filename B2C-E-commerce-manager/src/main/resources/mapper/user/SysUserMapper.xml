@@ -11,4 +11,26 @@
         select <include refid="columns" /> from sys_user where username = #{userName} and is_deleted = 0
     </select>
 
+    <!-- 用于select查询公用抽取的where条件 -->
+    <sql id="findPageWhere">
+        <where>
+            <if test="keyword != null and keyword != ''">
+                and username like CONCAT('%',#{keyword},'%')
+            </if>
+            <if test="createTimeBegin != null and createTimeBegin != ''">
+                and create_time >= #{createTimeBegin}
+            </if>
+            <if test="createTimeEnd != null and createTimeEnd != ''">
+                and create_time &lt;= #{createTimeEnd}
+            </if>
+            and is_deleted = 0
+        </where>
+    </sql>
+
+    <select id="findByPage" resultType="com.xionghaotian.entity.system.SysUser" >
+        select <include refid="columns" />
+        from sys_user
+        <include refid="findPageWhere"/>
+        order by id desc
+    </select>
 </mapper>
