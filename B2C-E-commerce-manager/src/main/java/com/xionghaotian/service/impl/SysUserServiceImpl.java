@@ -168,5 +168,15 @@ public class SysUserServiceImpl implements SysUserService {
 
     }
 
+    /**
+     * 修改系统用户
+     *
+     * @param sysUser 待修改的系统用户对象
+     */
+    @Override
+    public void updateSysUser(SysUser sysUser) {
+        sysUserMapper.updateSysUser(sysUser);
+    }
+
 
 }

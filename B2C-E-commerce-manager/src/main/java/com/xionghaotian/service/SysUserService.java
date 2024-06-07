@@ -38,5 +38,10 @@ public interface SysUserService {
      * 添加用户
      */
     public abstract void saveSysUser(SysUser sysUser);
+
+    /**
+     * 修改用户
+     */
+    public abstract void updateSysUser(SysUser sysUser);
 }
 

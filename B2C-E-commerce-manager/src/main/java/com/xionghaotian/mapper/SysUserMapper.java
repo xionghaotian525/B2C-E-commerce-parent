@@ -45,4 +45,13 @@ public interface SysUserMapper {
      * @param sysUser 要保存的系统用户。
      */
     public abstract void saveSysUser(SysUser sysUser);
+
+    /**
+     * 更新（修改）系统用户。
+     *
+     * 本函数是一个抽象方法，具体实现由子类提供。它的目的是为了更新一个系统用户。
+     *
+     * @param sysUser 要更新的系统用户。
+     */
+    public abstract void updateSysUser(SysUser sysUser);
 }

@@ -40,4 +40,10 @@ public class SysUserController {
         return Result.build(null, ResultCodeEnum.SUCCESS);
     }
 
+    @Operation(summary = "修改用户接口")
+    @PutMapping(value = "/updateSysUser")
+    public Result updateSysUser(@RequestBody SysUser sysUser){
+        sysUserService.updateSysUser(sysUser);
+        return Result.build(null, ResultCodeEnum.SUCCESS);
+    }
 }
