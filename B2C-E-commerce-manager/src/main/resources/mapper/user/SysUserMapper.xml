@@ -33,4 +33,27 @@
         <include refid="findPageWhere"/>
         order by id desc
     </select>
+
+    <!-- 添加用户 -->
+    <insert id="saveSysUser">
+        insert into sys_user (
+            id,
+            username,
+            password,
+            name,
+            phone,
+            avatar,
+            description,
+            status
+        ) values (
+                     #{id},
+                     #{userName},
+                     #{password},
+                     #{name},
+                     #{phone},
+                     #{avatar},
+                     #{description},
+                     #{status}
+                 )
+    </insert>
 </mapper>

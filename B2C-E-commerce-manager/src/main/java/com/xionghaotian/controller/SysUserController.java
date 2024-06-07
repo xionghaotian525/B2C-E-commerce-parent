@@ -8,10 +8,7 @@ import com.xionghaotian.vo.common.Result;
 import com.xionghaotian.vo.common.ResultCodeEnum;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @ClassName SysUserController
@@ -34,6 +31,13 @@ public class SysUserController {
                                                 @PathVariable(value = "pageSize") Integer pageSize){
         PageInfo<SysUser> pageInfo = sysUserService.findByPage(sysUserDto, pageNum, pageSize);
         return Result.build(pageInfo, ResultCodeEnum.SUCCESS);
+    }
+
+    @Operation(summary = "添加用户接口")
+    @PostMapping(value = "/saveSysUser")
+    public Result saveSysUser(@RequestBody SysUser sysUser){
+        sysUserService.saveSysUser(sysUser);
+        return Result.build(null, ResultCodeEnum.SUCCESS);
     }
 
 }

@@ -33,5 +33,10 @@ public interface SysUserService {
      * 分页查询获取用户列表接口(搜索功能)
      */
     public abstract PageInfo<SysUser> findByPage(SysUserDto sysUserDto, Integer pageNum, Integer pageSize);
+
+    /**
+     * 添加用户
+     */
+    public abstract void saveSysUser(SysUser sysUser);
 }
 

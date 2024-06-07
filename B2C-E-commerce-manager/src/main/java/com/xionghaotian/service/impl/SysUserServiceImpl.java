@@ -141,5 +141,32 @@ public class SysUserServiceImpl implements SysUserService {
         return pageInfo;
     }
 
+    /**
+     * 添加系统用户。
+     *
+     * @param sysUser 待添加的系统用户对象。
+     * @throws GuiguException 如果用户名称已存在，则抛出异常。
+     */
+    @Override
+    public void saveSysUser(SysUser sysUser) {
+        //根据用户名查询用户
+        SysUser dbSysUser = sysUserMapper.selectByUserName(sysUser.getUserName());
+        //用户已存在
+        if(dbSysUser != null) {
+            throw new GuiguException(ResultCodeEnum.USER_NAME_IS_EXISTS);
+        }
+
+        //对密码进行加密
+//        String password = sysUser.getPassword();
+//        String digestPassword = DigestUtils.md5DigestAsHex(password.getBytes());
+//        sysUser.setPassword(digestPassword);
+//        sysUser.setStatus(1);
+//        sysUserMapper.saveSysUser(sysUser) ;
+        sysUser.setPassword(DigestUtils.md5DigestAsHex(sysUser.getPassword().getBytes()));
+        sysUser.setStatus(1);
+        sysUserMapper.saveSysUser(sysUser);
+
+    }
+
 
 }

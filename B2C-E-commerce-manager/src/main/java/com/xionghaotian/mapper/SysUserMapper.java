@@ -36,4 +36,13 @@ public interface SysUserMapper {
      *         都是SysUser类型的对象，代表一个系统用户。
      */
     public abstract List<SysUser> findByPage(SysUserDto sysUserDto);
+
+    /**
+     * 添加系统用户。
+     *
+     * 本函数是一个抽象方法，具体实现由子类提供。它的目的是为了保存一个系统用户。
+     *
+     * @param sysUser 要保存的系统用户。
+     */
+    public abstract void saveSysUser(SysUser sysUser);
 }
