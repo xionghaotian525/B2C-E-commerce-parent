@@ -54,4 +54,13 @@ public interface SysUserMapper {
      * @param sysUser 要更新的系统用户。
      */
     public abstract void updateSysUser(SysUser sysUser);
+
+    /**
+     * 根据ID逻辑删除系统用户。
+     *
+     * 本函数是一个抽象方法，具体实现由子类提供。它的目的是根据ID删除一个系统用户。
+     *
+     * @param userId 要删除的用户的ID。
+     */
+    public abstract void deleteById(Long userId);
 }

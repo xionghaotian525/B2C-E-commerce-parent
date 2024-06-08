@@ -43,5 +43,10 @@ public interface SysUserService {
      * 修改用户
      */
     public abstract void updateSysUser(SysUser sysUser);
+
+    /**
+     * 删除用户
+     */
+    public abstract void deleteById(Long userId);
 }
 

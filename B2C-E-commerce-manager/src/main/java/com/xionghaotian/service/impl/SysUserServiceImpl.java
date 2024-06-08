@@ -178,5 +178,15 @@ public class SysUserServiceImpl implements SysUserService {
         sysUserMapper.updateSysUser(sysUser);
     }
 
+    /**
+     * 根据用户ID删除用户信息(逻辑删除)。
+     *
+     * @param userId 用户的唯一标识ID，用于定位并删除特定用户信息。
+     */
+    @Override
+    public void deleteById(Long userId) {
+        sysUserMapper.deleteById(userId);
+    }
+
 
 }

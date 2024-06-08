@@ -82,4 +82,9 @@
         where
         id = #{id}
     </update>
+
+    <!-- 删除用户 -->
+    <update id="deleteById">
+        update sys_user set update_time = now() , is_deleted = 1 where id = #{id}
+    </update>
 </mapper>

@@ -46,4 +46,11 @@ public class SysUserController {
         sysUserService.updateSysUser(sysUser);
         return Result.build(null, ResultCodeEnum.SUCCESS);
     }
+
+    @Operation(summary = "删除用户接口")
+    @DeleteMapping(value = "/deleteById/{userId}")
+    public Result deleteById(@PathVariable(value = "userId") Long userId) {
+        sysUserService.deleteById(userId) ;
+        return Result.build(null , ResultCodeEnum.SUCCESS) ;
+    }
 }
