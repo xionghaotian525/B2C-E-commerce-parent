@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
 
+
 @SpringBootApplication
 @MapperScan("com.xionghaotian.mpyx.product.mapper")
 public class ProductApplication {
