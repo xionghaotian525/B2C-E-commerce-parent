@@ -72,6 +72,9 @@
         <if test="phone != null and phone != ''">
             phone = #{phone},
         </if>
+        <if test="avatar != null and avatar != ''">
+            avatar = #{avatar},
+        </if>
         <if test="description != null and description != ''">
             description = #{description},
         </if>
