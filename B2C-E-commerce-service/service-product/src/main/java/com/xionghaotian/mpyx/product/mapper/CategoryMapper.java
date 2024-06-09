@@ -9,4 +9,6 @@ import java.util.List;
 public interface CategoryMapper {
     //查询所有的一级分类
     List<Category> findOneCategory();
+
+    List<Category> findAll();
 }
