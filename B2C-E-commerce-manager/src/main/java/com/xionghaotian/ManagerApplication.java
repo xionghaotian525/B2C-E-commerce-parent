@@ -1,5 +1,6 @@
 package com.xionghaotian;
 
+import com.xionghaotian.properties.MinioProperties;
 import com.xionghaotian.properties.UserAuthProperties;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,7 +12,7 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
  */
 
 @SpringBootApplication
-@EnableConfigurationProperties(value = {UserAuthProperties.class})
+@EnableConfigurationProperties(value = {UserAuthProperties.class, MinioProperties.class})
 public class ManagerApplication
 {
     public static void main( String[] args )

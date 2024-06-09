@@ -32,3 +32,8 @@ project:
       - /doc.html
       - /webjars/**
       - /v3/**
+  minio:
+    endpointUrl: http://127.0.0.1:9000
+    accessKey: minioadmin
+    secureKey: minioadmin
+    bucketName: b2c-e-commerce
