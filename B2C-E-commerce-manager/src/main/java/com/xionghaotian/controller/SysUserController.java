@@ -1,6 +1,7 @@
 package com.xionghaotian.controller;
 
 import com.github.pagehelper.PageInfo;
+import com.xionghaotian.dto.system.AssignRoleDto;
 import com.xionghaotian.dto.system.SysUserDto;
 import com.xionghaotian.entity.system.SysUser;
 import com.xionghaotian.service.SysUserService;
@@ -51,6 +52,13 @@ public class SysUserController {
     @DeleteMapping(value = "/deleteById/{userId}")
     public Result deleteById(@PathVariable(value = "userId") Long userId) {
         sysUserService.deleteById(userId) ;
+        return Result.build(null , ResultCodeEnum.SUCCESS) ;
+    }
+
+    @Operation(summary = "保存为用户分配的角色数据接口")
+    @PostMapping(value = "/doAssign")
+    public Result doAssign(@RequestBody AssignRoleDto assignRoleDto) {
+        sysUserService.doAssign(assignRoleDto) ;
         return Result.build(null , ResultCodeEnum.SUCCESS) ;
     }
 }

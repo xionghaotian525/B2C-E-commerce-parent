@@ -1,6 +1,7 @@
 package com.xionghaotian.service;
 
 import com.github.pagehelper.PageInfo;
+import com.xionghaotian.dto.system.AssignRoleDto;
 import com.xionghaotian.dto.system.LoginDto;
 import com.xionghaotian.dto.system.SysUserDto;
 import com.xionghaotian.entity.system.SysUser;
@@ -48,5 +49,10 @@ public interface SysUserService {
      * 删除用户
      */
     public abstract void deleteById(Long userId);
+
+    /**
+     * 保存为用户分配的角色信息
+     */
+    public abstract void doAssign(AssignRoleDto assignRoleDto);
 }
 

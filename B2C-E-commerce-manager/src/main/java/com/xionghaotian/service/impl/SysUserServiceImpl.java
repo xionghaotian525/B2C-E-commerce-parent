@@ -4,10 +4,12 @@ import cn.hutool.core.util.StrUtil;
 import com.alibaba.fastjson.JSON;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.xionghaotian.dto.system.AssignRoleDto;
 import com.xionghaotian.dto.system.LoginDto;
 import com.xionghaotian.dto.system.SysUserDto;
 import com.xionghaotian.entity.system.SysUser;
 import com.xionghaotian.exception.GuiguException;
+import com.xionghaotian.mapper.SysRoleUserMapper;
 import com.xionghaotian.mapper.SysUserMapper;
 import com.xionghaotian.service.SysUserService;
 import com.xionghaotian.vo.common.ResultCodeEnum;
@@ -16,6 +18,7 @@ import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.DigestUtils;
 
 import java.util.List;
@@ -38,6 +41,8 @@ public class SysUserServiceImpl implements SysUserService {
     @Resource
     private RedisTemplate<String , String> redisTemplate ;
 
+    @Autowired
+    private SysRoleUserMapper sysRoleUserMapper ;
     /**
      * 用户登录
      * @param loginDto 登录传输对象，包含用户名、密码、验证码和验证码键名
@@ -186,6 +191,26 @@ public class SysUserServiceImpl implements SysUserService {
     @Override
     public void deleteById(Long userId) {
         sysUserMapper.deleteById(userId);
+    }
+
+    /**
+     * 保存为用户分配的角色信息。
+     *
+     * 本方法通过删除用户原有的角色关联，然后根据新的角色ID列表为用户重新分配角色。
+     *
+     * @param assignRoleDto 包含用户ID和角色ID列表的数据传输对象。
+     */
+    @Transactional
+    @Override
+    public void doAssign(AssignRoleDto assignRoleDto) {
+        // 删除用户原有的角色关联
+        sysRoleUserMapper.deleteByUserId(assignRoleDto.getUserId()) ;
+
+        // 为用户分配新的角色数据
+        List<Long> roleIdList = assignRoleDto.getRoleIdList();
+        roleIdList.forEach(roleId->{
+            sysRoleUserMapper.doAssign(assignRoleDto.getUserId(),roleId);
+        });
     }
 
 
