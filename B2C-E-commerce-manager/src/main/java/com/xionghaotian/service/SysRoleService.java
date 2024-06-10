@@ -65,5 +65,5 @@ public interface SysRoleService {
      * 查询所有角色信息(权限管理-用户管理-分配角色-查询所有角色)
      * @return
      */
-    public abstract Map<String,Object> findAllRoles();
+    public abstract Map<String,Object> findAllRoles(Long userId);
 }

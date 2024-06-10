@@ -5,6 +5,7 @@ import com.github.pagehelper.PageInfo;
 import com.xionghaotian.dto.system.SysRoleDto;
 import com.xionghaotian.entity.system.SysRole;
 import com.xionghaotian.mapper.SysRoleMapper;
+import com.xionghaotian.mapper.SysRoleUserMapper;
 import com.xionghaotian.service.SysRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,6 +28,9 @@ public class SysRoleServiceImpl implements SysRoleService {
 
     @Autowired
     private SysRoleMapper sysRoleMapper ;
+
+    @Autowired
+    private SysRoleUserMapper sysRoleUserMapper ;
 
     /**
      * 根据条件分页查询系统角色信息（搜索功能）。
@@ -100,13 +104,20 @@ public class SysRoleServiceImpl implements SysRoleService {
      * @return Map<String, Object> 包含所有角色信息的Map对象，其中"allRolesList"键对应的值为角色列表。
      */
     @Override
-    public Map<String, Object> findAllRoles() {
+    public Map<String, Object> findAllRoles(Long userId) {
+
         // 调用sysRoleMapper的findAllRoles方法获取所有角色列表
         List<SysRole> sysRoleList = sysRoleMapper.findAllRoles() ;
+
+        // 获取当前登录用户的角色列表
+        List<Long> userRoleList = sysRoleUserMapper.findSysUserRoleByUserId(userId) ;
+
         // 初始化一个Map用于存放结果
         Map<String , Object> resultMap = new HashMap<>() ;
         // 将角色列表放入Map中，键为"allRolesList"
         resultMap.put("allRolesList" , sysRoleList) ;
+        // 将当前登录用户的角色列表放入Map中，键为"userRoleList"
+        resultMap.put("userRoleList" , userRoleList) ;
         // 返回包含所有角色信息的Map
         return resultMap;
     }

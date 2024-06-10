@@ -11,4 +11,9 @@
         values ( #{userId} , #{roleId} , now() , now() , 0)
     </insert>
 
+    <!-- 查询指定用户所对应的角色数据 -->
+    <select id="findSysUserRoleByUserId" resultType="long">
+        select role_id from sys_user_role sur where sur.user_id = #{userId}
+    </select>
+
 </mapper>

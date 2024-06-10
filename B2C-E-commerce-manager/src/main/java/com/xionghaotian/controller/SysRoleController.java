@@ -59,9 +59,9 @@ public class SysRoleController {
 
     //权限管理-用户管理-分配角色-获取所有角色信息
     @Operation(summary = "获取所有角色接口")
-    @GetMapping(value = "/findAllRoles")
-    public Result<Map<String , Object>> findAllRoles() {
-        Map<String, Object> resultMap = sysRoleService.findAllRoles();
+    @GetMapping(value = "/findAllRoles/{userId}")
+    public Result<Map<String , Object>> findAllRoles(@PathVariable(value = "userId") Long userId) {
+        Map<String, Object> resultMap = sysRoleService.findAllRoles(userId);
         return Result.build(resultMap , ResultCodeEnum.SUCCESS)  ;
     }
 }
