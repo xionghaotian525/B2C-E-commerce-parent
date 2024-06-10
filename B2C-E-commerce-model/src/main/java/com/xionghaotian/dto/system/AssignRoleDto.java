@@ -7,7 +7,7 @@ import java.util.List;
 
 @Data
 @Schema(description = "请求参数实体类")
-public class AssginRoleDto {
+public class AssignRoleDto {
 
     @Schema(description = "用户id")
     private Long userId;
