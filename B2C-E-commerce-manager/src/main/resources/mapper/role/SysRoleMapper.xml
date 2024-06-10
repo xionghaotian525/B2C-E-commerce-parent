@@ -63,4 +63,10 @@
     <update id="deleteById">
         update sys_role set is_deleted=1 where id=#{roleId}
     </update>
+
+    <!-- 权限管理-用户管理-分配角色-查询所有角色信息 -->
+    <select id="findAllRoles" resultMap="sysRoleMap">
+        select <include refid="columns" />
+        from sys_role where is_deleted = 0
+    </select>
 </mapper>

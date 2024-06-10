@@ -4,6 +4,9 @@ import com.github.pagehelper.PageInfo;
 import com.xionghaotian.dto.system.SysRoleDto;
 import com.xionghaotian.entity.system.SysRole;
 
+import java.util.List;
+import java.util.Map;
+
 /**
  * @ClassName SysRoleService
  * @Description 管理员端-权限管理-角色管理-服务层接口
@@ -58,4 +61,9 @@ public interface SysRoleService {
      */
     public abstract void deleteSysRole(Long roleId);
 
+    /**
+     * 查询所有角色信息(权限管理-用户管理-分配角色-查询所有角色)
+     * @return
+     */
+    public abstract Map<String,Object> findAllRoles();
 }

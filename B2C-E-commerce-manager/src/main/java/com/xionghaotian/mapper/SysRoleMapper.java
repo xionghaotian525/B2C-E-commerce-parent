@@ -59,4 +59,9 @@ public interface SysRoleMapper {
      */
     public abstract void deleteById(Long roleId);
 
+    /**
+     * 查询所有角色信息(权限管理-用户管理-分配角色-查询所有角色信息)
+     * @return List<SysRole> 角色列表
+     */
+    public abstract List<SysRole> findAllRoles();
 }

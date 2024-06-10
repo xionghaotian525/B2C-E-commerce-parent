@@ -9,7 +9,9 @@ import com.xionghaotian.service.SysRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @ClassName SysRoleServiceImpl
@@ -86,5 +88,26 @@ public class SysRoleServiceImpl implements SysRoleService {
     @Override
     public void deleteSysRole(Long roleId) {
         sysRoleMapper.deleteById(roleId) ;
+    }
+
+    /**
+     * 查询所有角色信息(权限管理-用户管理-分配角色-查询所有角色信息)
+     *
+     * 本方法通过调用sysRoleMapper的findAllRoles方法，获取系统中的所有角色列表。
+     * 将获取到的角色列表封装到一个Map中，其中键为"allRolesList"，值为角色列表。
+     * 这样做的目的是为了方便在前端展示所有角色的信息。
+     *
+     * @return Map<String, Object> 包含所有角色信息的Map对象，其中"allRolesList"键对应的值为角色列表。
+     */
+    @Override
+    public Map<String, Object> findAllRoles() {
+        // 调用sysRoleMapper的findAllRoles方法获取所有角色列表
+        List<SysRole> sysRoleList = sysRoleMapper.findAllRoles() ;
+        // 初始化一个Map用于存放结果
+        Map<String , Object> resultMap = new HashMap<>() ;
+        // 将角色列表放入Map中，键为"allRolesList"
+        resultMap.put("allRolesList" , sysRoleList) ;
+        // 返回包含所有角色信息的Map
+        return resultMap;
     }
 }
