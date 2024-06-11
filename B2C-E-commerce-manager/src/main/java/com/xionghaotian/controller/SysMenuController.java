@@ -44,4 +44,11 @@ public class SysMenuController {
         sysMenuService.updateById(sysMenu);
         return Result.build(null , ResultCodeEnum.SUCCESS) ;
     }
+
+    @Operation(summary = "删除系统菜单接口")
+    @DeleteMapping("/removeById/{id}")
+    public Result removeById(@PathVariable Long id) {
+        sysMenuService.removeById(id);
+        return Result.build(null , ResultCodeEnum.SUCCESS) ;
+    }
 }

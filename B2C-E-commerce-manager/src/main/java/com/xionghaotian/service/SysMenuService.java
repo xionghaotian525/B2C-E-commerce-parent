@@ -18,4 +18,6 @@ public interface SysMenuService {
     public abstract void save(SysMenu sysMenu);
 
     public abstract void updateById(SysMenu sysMenu);
+
+    public abstract void removeById(Long id);
 }

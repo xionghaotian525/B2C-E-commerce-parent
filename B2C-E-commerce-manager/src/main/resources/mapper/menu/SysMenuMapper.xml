@@ -59,4 +59,21 @@
         where
         id = #{id}
     </update>
+
+    <!--删除菜单-->
+    <select id="countByParentId" resultType="Integer">
+        select count(id)
+        from sys_menu
+        where
+            parent_id = #{parentId}
+        and is_deleted = 0
+    </select>
+
+    <update id="deleteById">
+        update sys_menu set
+            update_time = now() ,
+            is_deleted = 1
+        where
+            id = #{id}
+    </update>
 </mapper>

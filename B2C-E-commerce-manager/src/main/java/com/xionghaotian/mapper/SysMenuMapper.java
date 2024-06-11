@@ -19,4 +19,8 @@ public interface SysMenuMapper {
     public abstract  void insert(SysMenu sysMenu);
 
     public abstract void updateById(SysMenu sysMenu);
+
+    //删除菜单
+    public abstract int countByParentId(Long id);
+    public abstract void deleteById(Long id);
 }
