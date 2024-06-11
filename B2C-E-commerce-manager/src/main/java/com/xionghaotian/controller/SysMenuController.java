@@ -37,4 +37,11 @@ public class SysMenuController {
         sysMenuService.save(sysMenu);
         return Result.build(null , ResultCodeEnum.SUCCESS) ;
     }
+
+    @Operation(summary = "修改系统菜单接口")
+    @PutMapping("/updateById")
+    public Result updateById(@RequestBody SysMenu sysMenu) {
+        sysMenuService.updateById(sysMenu);
+        return Result.build(null , ResultCodeEnum.SUCCESS) ;
+    }
 }

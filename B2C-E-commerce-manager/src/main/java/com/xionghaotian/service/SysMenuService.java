@@ -16,4 +16,6 @@ public interface SysMenuService {
     public abstract List<SysMenu> findNodes();
 
     public abstract void save(SysMenu sysMenu);
+
+    public abstract void updateById(SysMenu sysMenu);
 }

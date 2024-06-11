@@ -55,4 +55,16 @@ public class SysMenuServiceImpl implements SysMenuService {
         sysMenuMapper.insert(sysMenu) ;
     }
 
+    /**
+     * 修改系统菜单信息。
+     *
+     * 通过调用SysMenuMapper的updateById方法，更新SysMenu对象在数据库中的信息。
+     *
+     * @param sysMenu 要更新的系统菜单对象，包含新的菜单信息。
+     */
+    @Override
+    public void updateById(SysMenu sysMenu) {
+        sysMenuMapper.updateById(sysMenu) ;
+    }
+
 }
