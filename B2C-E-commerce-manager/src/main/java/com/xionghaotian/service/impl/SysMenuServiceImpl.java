@@ -43,4 +43,16 @@ public class SysMenuServiceImpl implements SysMenuService {
         return treeList;
     }
 
+    /**
+     * 保存系统菜单信息。
+     *
+     * 通过调用SysMenuMapper的insert方法，将SysMenu对象插入到数据库中。
+     *
+     * @param sysMenu 要保存的系统菜单对象，包含菜单的相关信息。
+     */
+    @Override
+    public void save(SysMenu sysMenu) {
+        sysMenuMapper.insert(sysMenu) ;
+    }
+
 }

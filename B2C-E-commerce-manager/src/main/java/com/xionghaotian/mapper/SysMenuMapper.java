@@ -15,4 +15,6 @@ import java.util.List;
 @Mapper
 public interface SysMenuMapper {
     public abstract List<SysMenu> selectAll();
+
+    public abstract  void insert(SysMenu sysMenu);
 }

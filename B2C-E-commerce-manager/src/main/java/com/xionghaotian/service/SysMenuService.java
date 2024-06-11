@@ -14,4 +14,6 @@ import java.util.List;
 public interface SysMenuService {
 
     public abstract List<SysMenu> findNodes();
+
+    public abstract void save(SysMenu sysMenu);
 }

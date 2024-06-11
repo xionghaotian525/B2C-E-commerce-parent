@@ -6,9 +6,7 @@ import com.xionghaotian.vo.common.Result;
 import com.xionghaotian.vo.common.ResultCodeEnum;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -33,4 +31,10 @@ public class SysMenuController {
         return Result.build(list , ResultCodeEnum.SUCCESS) ;
     }
 
+    @Operation(summary = "添加系统菜单接口")
+    @PostMapping("/save")
+    public Result save(@RequestBody SysMenu sysMenu) {
+        sysMenuService.save(sysMenu);
+        return Result.build(null , ResultCodeEnum.SUCCESS) ;
+    }
 }
