@@ -1,6 +1,5 @@
 server:
   port: 8511
-
 #注册服务 service-product
 spring:
   application:
@@ -18,11 +17,13 @@ spring:
     username: root
     password: root
 
+
   # Redis的相关配置
   data:
     redis:
       host: localhost
       port: 6379
+      client-name:
 
 mybatis:
   config-location: classpath:mybatis-config.xml

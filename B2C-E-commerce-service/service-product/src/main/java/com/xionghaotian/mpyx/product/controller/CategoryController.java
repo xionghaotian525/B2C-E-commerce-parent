@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @SuppressWarnings({"unchecked", "rawtypes"})
-@CrossOrigin//解决跨域问题
+//@CrossOrigin//解决跨域问题
 @RestController
 @RequestMapping(value="/api/product/category")
 public class CategoryController {
