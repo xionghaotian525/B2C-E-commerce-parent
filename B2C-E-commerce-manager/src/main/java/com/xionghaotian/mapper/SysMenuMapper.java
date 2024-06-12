@@ -26,4 +26,7 @@ public interface SysMenuMapper {
 
     //动态菜单
     public abstract List<SysMenu> selectListByUserId(Long userId);
+
+    //动态菜单bugfix，查询父级菜单
+    public abstract SysMenu selectParentMenu(Long parentId);
 }

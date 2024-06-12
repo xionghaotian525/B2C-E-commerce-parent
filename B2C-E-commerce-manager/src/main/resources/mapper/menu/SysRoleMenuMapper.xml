@@ -21,4 +21,9 @@
             (#{roleId} , #{menuInfo.id} , now() , now() , 0 , #{menuInfo.isHalf})
         </foreach>
     </insert>
+
+    <!--动态菜单bugfix-->
+    <select id="updateSysRoleMenuIsHalf">
+        update sys_role_menu srm set srm.is_half = 1 where menu_id = #{menuId}
+    </select>
 </mapper>

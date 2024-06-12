@@ -19,4 +19,7 @@ public interface SysRoleMenuMapper {
     //保存角色菜单信息
     public abstract void deleteByRoleId(Long roleId);
     public abstract void doAssign(AssignMenuDto assignMenuDto);
+
+    //动态菜单bugfix，更新系统角色菜单的半选状态
+    public abstract  void updateSysRoleMenuIsHalf(Long menuId);
 }

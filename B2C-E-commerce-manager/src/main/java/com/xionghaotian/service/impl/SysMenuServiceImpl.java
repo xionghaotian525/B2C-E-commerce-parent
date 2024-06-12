@@ -6,6 +6,7 @@ import com.xionghaotian.entity.system.SysUser;
 import com.xionghaotian.exception.GuiguException;
 import com.xionghaotian.helper.MenuHelper;
 import com.xionghaotian.mapper.SysMenuMapper;
+import com.xionghaotian.mapper.SysRoleMenuMapper;
 import com.xionghaotian.service.SysMenuService;
 import com.xionghaotian.vo.common.ResultCodeEnum;
 import com.xionghaotian.vo.system.SysMenuVo;
@@ -28,6 +29,9 @@ public class SysMenuServiceImpl implements SysMenuService {
 
     @Autowired
     private SysMenuMapper sysMenuMapper ;
+
+    @Autowired
+    private SysRoleMenuMapper sysRoleMenuMapper ;
 
     /**
      * 查询所有菜单节点并构建树形结构。
@@ -58,7 +62,28 @@ public class SysMenuServiceImpl implements SysMenuService {
      */
     @Override
     public void save(SysMenu sysMenu) {
+        // 添加新的节点
         sysMenuMapper.insert(sysMenu) ;
+
+        // 新添加一个菜单，那么此时就需要将该菜单所对应的父级菜单设置为半开
+        updateSysRoleMenuIsHalf(sysMenu) ;
+    }
+
+    private void updateSysRoleMenuIsHalf(SysMenu sysMenu) {
+
+        // 查询是否存在父节点
+        SysMenu parentMenu = sysMenuMapper.selectParentMenu(sysMenu.getParentId());
+
+        if(parentMenu != null) {
+
+            // 将父菜单设置为半开
+            sysRoleMenuMapper.updateSysRoleMenuIsHalf(parentMenu.getId()) ;
+
+            // 递归调用
+            updateSysRoleMenuIsHalf(parentMenu) ;
+
+        }
+
     }
 
     /**
