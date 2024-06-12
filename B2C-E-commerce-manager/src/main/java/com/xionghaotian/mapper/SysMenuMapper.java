@@ -23,4 +23,7 @@ public interface SysMenuMapper {
     //删除菜单
     public abstract int countByParentId(Long id);
     public abstract void deleteById(Long id);
+
+    //动态菜单
+    public abstract List<SysMenu> selectListByUserId(Long userId);
 }

@@ -3,17 +3,21 @@ package com.xionghaotian.controller;
 import com.xionghaotian.AuthContextUtil;
 import com.xionghaotian.dto.system.LoginDto;
 import com.xionghaotian.entity.system.SysUser;
+import com.xionghaotian.service.SysMenuService;
 import com.xionghaotian.service.SysUserService;
 import com.xionghaotian.service.ValidateCodeService;
 import com.xionghaotian.vo.common.Result;
 import com.xionghaotian.vo.common.ResultCodeEnum;
 import com.xionghaotian.vo.system.LoginVo;
+import com.xionghaotian.vo.system.SysMenuVo;
 import com.xionghaotian.vo.system.ValidateCodeVo;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 //import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * @ClassName IndexController
@@ -33,6 +37,9 @@ public class IndexController {
 
     @Autowired
     private ValidateCodeService validateCodeService ;
+
+    @Autowired
+    private SysMenuService sysMenuService ;
 
     //生成图片验证码
     @Operation(summary = "生成图片验证码")
@@ -74,6 +81,14 @@ public class IndexController {
     public Result logout(@RequestHeader(value = "token") String token) {
         sysUserService.logout(token) ;
         return Result.build(null , ResultCodeEnum.SUCCESS) ;
+    }
+
+    //动态菜单
+    @Operation(summary = "动态菜单")
+    @GetMapping("/menus")
+    public Result menus() {
+        List<SysMenuVo> sysMenuVoList =  sysMenuService.findUserMenuList() ;
+        return Result.build(sysMenuVoList , ResultCodeEnum.SUCCESS) ;
     }
 
 }

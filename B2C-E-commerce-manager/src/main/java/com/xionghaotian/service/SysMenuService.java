@@ -1,6 +1,7 @@
 package com.xionghaotian.service;
 
 import com.xionghaotian.entity.system.SysMenu;
+import com.xionghaotian.vo.system.SysMenuVo;
 
 import java.util.List;
 
@@ -20,4 +21,8 @@ public interface SysMenuService {
     public abstract void updateById(SysMenu sysMenu);
 
     public abstract void removeById(Long id);
+
+    //动态菜单
+    public abstract List<SysMenuVo> findUserMenuList();
+
 }

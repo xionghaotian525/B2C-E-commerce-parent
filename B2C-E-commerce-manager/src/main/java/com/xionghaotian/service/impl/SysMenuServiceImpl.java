@@ -1,15 +1,19 @@
 package com.xionghaotian.service.impl;
 
+import com.xionghaotian.AuthContextUtil;
 import com.xionghaotian.entity.system.SysMenu;
+import com.xionghaotian.entity.system.SysUser;
 import com.xionghaotian.exception.GuiguException;
 import com.xionghaotian.helper.MenuHelper;
 import com.xionghaotian.mapper.SysMenuMapper;
 import com.xionghaotian.service.SysMenuService;
 import com.xionghaotian.vo.common.ResultCodeEnum;
+import com.xionghaotian.vo.system.SysMenuVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.apache.commons.collections.CollectionUtils;
 
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -91,5 +95,46 @@ public class SysMenuServiceImpl implements SysMenuService {
         sysMenuMapper.deleteById(id);
     }
 
+    /**
+     * 动态菜单获取用户菜单列表
+     * 该方法用于根据当前登录用户的ID，查询并构建该用户可访问的菜单树状结构。
+     * 菜单数据经过处理，形成树形结构，方便前端展示和操作。
+     *
+     * @return List<SysMenuVo> 返回当前用户可访问的菜单树状结构列表
+     */
+    @Override
+    public List<SysMenuVo> findUserMenuList() {
+        // 通过AuthContextUtil获取当前登录的系统用户
+        SysUser sysUser = AuthContextUtil.get();
+        // 获取当前登录用户的ID
+        Long userId = sysUser.getId();
+
+        List<SysMenu> sysMenuList = sysMenuMapper.selectListByUserId(userId);
+
+        // 使用MenuHelper将查询到的菜单列表构建为树形结构
+        // 构建树形数据
+        List<SysMenu> sysMenuTreeList = MenuHelper.buildTree(sysMenuList);
+
+        // 将构建好的树形结构转换为前端需要的VO对象列表，并返回
+        return this.buildMenus(sysMenuTreeList);
+    }
+
+
+    // 将List<SysMenu>对象转换成List<SysMenuVo>对象
+    private List<SysMenuVo> buildMenus(List<SysMenu> menus) {
+
+        List<SysMenuVo> sysMenuVoList = new LinkedList<SysMenuVo>();
+        for (SysMenu sysMenu : menus) {
+            SysMenuVo sysMenuVo = new SysMenuVo();
+            sysMenuVo.setTitle(sysMenu.getTitle());
+            sysMenuVo.setName(sysMenu.getComponent());
+            List<SysMenu> children = sysMenu.getChildren();
+            if (!CollectionUtils.isEmpty(children)) {
+                sysMenuVo.setChildren(buildMenus(children));
+            }
+            sysMenuVoList.add(sysMenuVo);
+        }
+        return sysMenuVoList;
+    }
 
 }
