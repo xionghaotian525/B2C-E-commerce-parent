@@ -1,5 +1,6 @@
 package com.xionghaotian.mapper;
 
+import com.xionghaotian.dto.system.AssignMenuDto;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -14,4 +15,8 @@ import java.util.List;
 @Mapper
 public interface SysRoleMenuMapper {
     public abstract List<Long> findSysRoleMenuByRoleId(Long roleId);
+
+    //保存角色菜单信息
+    public abstract void deleteByRoleId(Long roleId);
+    public abstract void doAssign(AssignMenuDto assignMenuDto);
 }

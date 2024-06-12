@@ -1,5 +1,7 @@
 package com.xionghaotian.service;
 
+import com.xionghaotian.dto.system.AssignMenuDto;
+
 import java.util.Map;
 
 /**
@@ -11,4 +13,6 @@ import java.util.Map;
  */
 public interface SysRoleMenuService {
     public abstract Map<String, Object> findSysRoleMenuByRoleId(Long roleId);
+
+    public abstract void doAssign(AssignMenuDto assignMenuDto);
 }

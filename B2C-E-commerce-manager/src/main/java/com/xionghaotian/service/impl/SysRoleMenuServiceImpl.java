@@ -1,11 +1,13 @@
 package com.xionghaotian.service.impl;
 
+import com.xionghaotian.dto.system.AssignMenuDto;
 import com.xionghaotian.entity.system.SysMenu;
 import com.xionghaotian.mapper.SysRoleMenuMapper;
 import com.xionghaotian.service.SysMenuService;
 import com.xionghaotian.service.SysRoleMenuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashMap;
 import java.util.List;
@@ -42,5 +44,18 @@ public class SysRoleMenuServiceImpl implements SysRoleMenuService {
 
         // 返回
         return result;
+    }
+
+    @Transactional
+    @Override
+    public void doAssign(AssignMenuDto assignMenuDto) {
+        // 根据角色的id删除其所对应的菜单数据
+        sysRoleMenuMapper.deleteByRoleId(assignMenuDto.getRoleId());
+
+        // 获取菜单的id
+        List<Map<String, Number>> menuInfo = assignMenuDto.getMenuIdList();
+        if(menuInfo != null && menuInfo.size() > 0) {
+            sysRoleMenuMapper.doAssign(assignMenuDto) ;
+        }
     }
 }
