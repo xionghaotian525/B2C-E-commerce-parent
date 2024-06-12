@@ -7,6 +7,8 @@ import com.xionghaotian.entity.product.Category;
 import com.xionghaotian.mpyx.product.mapper.CategoryMapper;
 import com.xionghaotian.mpyx.product.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
@@ -38,6 +40,7 @@ public class CategoryServiceImpl implements CategoryService {
         return categoryList ;
     }
 
+    @Cacheable(value ="category",key = "'all'")
     //查询所有分类，树形封装
     @Override
     public List<Category> findCategoryTree() {
