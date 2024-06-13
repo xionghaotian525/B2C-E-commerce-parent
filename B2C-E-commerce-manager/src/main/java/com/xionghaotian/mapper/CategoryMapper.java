@@ -20,4 +20,7 @@ public interface CategoryMapper {
 
     //导出功能
     public abstract List<Category> selectAll();
+
+    //导出功能
+    public abstract void batchInsert(List<Category> categoryList);
 }

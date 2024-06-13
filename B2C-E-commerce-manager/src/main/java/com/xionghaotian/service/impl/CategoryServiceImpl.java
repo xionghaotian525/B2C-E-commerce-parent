@@ -2,14 +2,18 @@ package com.xionghaotian.service.impl;
 
 import com.alibaba.excel.EasyExcel;
 import com.xionghaotian.entity.product.Category;
+import com.xionghaotian.exception.GuiguException;
+import com.xionghaotian.listener.ExcelListener;
 import com.xionghaotian.mapper.CategoryMapper;
 import com.xionghaotian.service.CategoryService;
+import com.xionghaotian.vo.common.ResultCodeEnum;
 import com.xionghaotian.vo.product.CategoryExcelVo;
 import jakarta.servlet.http.HttpServletResponse;
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 
 import java.io.IOException;
@@ -89,6 +93,25 @@ public class CategoryServiceImpl implements CategoryService {
 
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    //导入Excel数据
+    //创建一个监听器对象excelListener，该监听器会将读取到的Excel数据转换为CategoryExcelVo对象，并通过categoryMapper进行数据库操作。
+    //调用EasyExcel.read()方法读取Excel数据，传入参数为文件输入流file.getInputStream()、Excel数据转换对象CategoryExcelVo.class和监听器对象excelListener。
+    //调用sheet().doRead()方法指定读取第一个sheet并开始读取Excel数据。
+    //如果出现IOException异常，则抛出自定义异常GuiguException，异常码为DATA_ERROR。
+    @Override
+    public void importData(MultipartFile file) {
+        try {
+            //创建监听器对象，传递mapper对象
+            ExcelListener<CategoryExcelVo> excelListener = new ExcelListener<>(categoryMapper);
+            //调用read方法读取excel数据
+            EasyExcel.read(file.getInputStream(),
+                    CategoryExcelVo.class,
+                    excelListener).sheet().doRead();
+        } catch (IOException e) {
+            throw new GuiguException(ResultCodeEnum.DATA_ERROR);
         }
     }
 }
