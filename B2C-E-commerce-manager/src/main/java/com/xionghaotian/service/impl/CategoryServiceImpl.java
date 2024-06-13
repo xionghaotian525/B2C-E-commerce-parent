@@ -1,13 +1,20 @@
 package com.xionghaotian.service.impl;
 
+import com.alibaba.excel.EasyExcel;
 import com.xionghaotian.entity.product.Category;
 import com.xionghaotian.mapper.CategoryMapper;
 import com.xionghaotian.service.CategoryService;
+import com.xionghaotian.vo.product.CategoryExcelVo;
+import jakarta.servlet.http.HttpServletResponse;
 import org.apache.commons.collections.CollectionUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
+import java.io.IOException;
+import java.net.URLEncoder;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -44,5 +51,44 @@ public class CategoryServiceImpl implements CategoryService {
             });
         }
         return categoryList;
+    }
+
+    //该函数用于导出数据库中的分类数据为Excel文件。具体实现步骤如下：
+    //设置响应结果类型为Excel格式。
+    //设置响应头信息，包括文件名和下载方式。
+    //从数据库中查询分类数据。
+    //将Category对象转换为CategoryExcelVo对象，使用BeanUtils的copyProperties方法进行属性拷贝。
+    //使用EasyExcel框架将转换后的数据写出到浏览器端，以供用户下载。
+    @Override
+    public void exportData(HttpServletResponse response) {
+
+        try {
+
+            // 设置响应结果类型
+            response.setContentType("application/vnd.ms-excel");
+            response.setCharacterEncoding("utf-8");
+
+            // 这里URLEncoder.encode可以防止中文乱码 当然和easyexcel没有关系
+            String fileName = URLEncoder.encode("分类数据", "UTF-8");
+            response.setHeader("Content-disposition", "attachment;filename=" + fileName + ".xlsx");
+            //response.setHeader("Access-Control-Expose-Headers", "Content-Disposition");
+
+            // 查询数据库中的数据
+            List<Category> categoryList = categoryMapper.selectAll();
+            List<CategoryExcelVo> categoryExcelVoList = new ArrayList<>(categoryList.size());
+
+            // 将从数据库中查询到的Category对象转换成CategoryExcelVo对象
+            for(Category category : categoryList) {
+                CategoryExcelVo categoryExcelVo = new CategoryExcelVo();
+                BeanUtils.copyProperties(category, categoryExcelVo, CategoryExcelVo.class);
+                categoryExcelVoList.add(categoryExcelVo);
+            }
+
+            // 写出数据到浏览器端
+            EasyExcel.write(response.getOutputStream(), CategoryExcelVo.class).sheet("分类数据").doWrite(categoryExcelVoList);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

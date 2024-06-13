@@ -25,4 +25,12 @@
           and is_deleted = 0
     </select>
 
+    <!--导出功能-->
+    <select id="selectAll" resultMap="categoryMap">
+        select <include refid="columns" />
+        from category
+        where is_deleted = 0
+        order by id
+    </select>
+
 </mapper>

@@ -5,6 +5,7 @@ import com.xionghaotian.service.CategoryService;
 import com.xionghaotian.vo.common.Result;
 import com.xionghaotian.vo.common.ResultCodeEnum;
 import io.swagger.v3.oas.annotations.Operation;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -32,5 +33,11 @@ public class CategoryController {
     public Result<List<Category>> findByParentId(@PathVariable Long parentId) {
         List<Category> list = categoryService.findByParentId(parentId);
         return Result.build(list , ResultCodeEnum.SUCCESS) ;
+    }
+
+    @Operation(summary = "导出商品分类数据")
+    @GetMapping(value = "/exportData")
+    public void exportData(HttpServletResponse response) {
+        categoryService.exportData(response);
     }
 }

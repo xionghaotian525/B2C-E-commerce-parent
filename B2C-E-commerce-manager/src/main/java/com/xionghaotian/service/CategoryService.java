@@ -1,6 +1,7 @@
 package com.xionghaotian.service;
 
 import com.xionghaotian.entity.product.Category;
+import jakarta.servlet.http.HttpServletResponse;
 
 import java.util.List;
 
@@ -13,4 +14,7 @@ import java.util.List;
  */
 public interface CategoryService {
     public abstract List<Category> findByParentId(Long parentId);
+
+    //导出
+    public abstract void exportData(HttpServletResponse response);
 }

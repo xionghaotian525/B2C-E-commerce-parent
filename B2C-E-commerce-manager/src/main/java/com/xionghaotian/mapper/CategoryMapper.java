@@ -17,4 +17,7 @@ public interface CategoryMapper {
     //列表查询
     public abstract List<Category> selectByParentId(Long parentId);
     public abstract int countByParentId(Long id);
+
+    //导出功能
+    public abstract List<Category> selectAll();
 }
