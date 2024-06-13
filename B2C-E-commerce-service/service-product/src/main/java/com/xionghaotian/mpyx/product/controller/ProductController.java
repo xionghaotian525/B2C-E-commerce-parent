@@ -6,6 +6,7 @@ import com.xionghaotian.entity.product.ProductSku;
 import com.xionghaotian.mpyx.product.service.ProductService;
 import com.xionghaotian.vo.common.Result;
 import com.xionghaotian.vo.common.ResultCodeEnum;
+import com.xionghaotian.vo.h5.ProductItemVo;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,14 @@ import org.springframework.web.bind.annotation.RestController;
 public class ProductController {
     @Autowired
     private ProductService productService;
+
+    @Operation(summary = "商品详情")
+    @GetMapping("item/{skuId}")
+    public Result item(@PathVariable Long skuId) {
+        ProductItemVo productItemVo = productService.item(skuId);
+        return Result.build(productItemVo , ResultCodeEnum.SUCCESS);
+    }
+
 
     @Operation(summary = "分页查询")
     @GetMapping(value = "/{page}/{limit}")
