@@ -13,5 +13,7 @@ import com.xionghaotian.entity.product.Brand;
 public interface BrandService {
     public abstract PageInfo<Brand> findByPage(Integer pageNum, Integer pageSize);
 
-    public void saveBrand(Brand brand);
+    public abstract void saveBrand(Brand brand);
+
+    public abstract void updateById(Brand brand);
 }

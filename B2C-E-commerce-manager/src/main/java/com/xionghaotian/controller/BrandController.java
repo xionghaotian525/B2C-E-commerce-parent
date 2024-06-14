@@ -36,4 +36,11 @@ public class BrandController {
         brandService.saveBrand(brand);
         return Result.build(null , ResultCodeEnum.SUCCESS) ;
     }
+
+    @Operation(summary = "修改品牌接口")
+    @PutMapping("/updateById")
+    public Result updateById(@RequestBody Brand brand) {
+        brandService.updateById(brand);
+        return Result.build(null , ResultCodeEnum.SUCCESS) ;
+    }
 }

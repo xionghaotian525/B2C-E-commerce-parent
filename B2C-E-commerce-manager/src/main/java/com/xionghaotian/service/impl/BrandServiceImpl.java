@@ -35,4 +35,10 @@ public class BrandServiceImpl implements BrandService {
     public void saveBrand(Brand brand) {
         brandMapper.saveBrand(brand);
     }
+
+    //修改品牌
+    @Override
+    public void updateById(Brand brand) {
+        brandMapper.updateById(brand);
+    }
 }
