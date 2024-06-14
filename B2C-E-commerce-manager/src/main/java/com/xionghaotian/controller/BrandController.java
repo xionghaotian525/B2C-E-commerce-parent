@@ -7,10 +7,7 @@ import com.xionghaotian.vo.common.Result;
 import com.xionghaotian.vo.common.ResultCodeEnum;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @ClassName BrandController
@@ -33,4 +30,10 @@ public class BrandController {
         return Result.build(pageInfo , ResultCodeEnum.SUCCESS) ;
     }
 
+    @Operation(summary = "添加品牌接口")
+    @PostMapping("/saveBrand")
+    public Result saveBrand(@RequestBody Brand brand) {
+        brandService.saveBrand(brand);
+        return Result.build(null , ResultCodeEnum.SUCCESS) ;
+    }
 }

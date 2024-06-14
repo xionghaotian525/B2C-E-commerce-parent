@@ -17,4 +17,22 @@
         order by id desc
     </select>
 
+    <!--添加品牌-->
+    <insert id="saveBrand">
+        insert into brand (
+            id,
+            name,
+            logo,
+            create_time ,
+            update_time ,
+            is_deleted
+        ) values (
+                     #{id},
+                     #{name},
+                     #{logo},
+                     now(),
+                     now(),
+                     0
+                 )
+    </insert>
 </mapper>

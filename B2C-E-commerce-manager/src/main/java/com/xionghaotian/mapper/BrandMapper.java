@@ -15,4 +15,6 @@ import java.util.List;
 @Mapper
 public interface BrandMapper {
     public abstract List<Brand> findByPage();
+
+    public abstract void saveBrand(Brand brand);
 }

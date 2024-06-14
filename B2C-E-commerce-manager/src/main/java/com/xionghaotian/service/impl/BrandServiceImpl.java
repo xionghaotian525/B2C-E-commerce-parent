@@ -29,4 +29,10 @@ public class BrandServiceImpl implements BrandService {
         List<Brand> brandList = brandMapper.findByPage() ;
         return new PageInfo(brandList);
     }
+
+    //添加品牌
+    @Override
+    public void saveBrand(Brand brand) {
+        brandMapper.saveBrand(brand);
+    }
 }
