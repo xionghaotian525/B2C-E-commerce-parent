@@ -19,4 +19,6 @@ public interface BrandMapper {
     public abstract void saveBrand(Brand brand);
 
     public abstract void updateById(Brand brand);
+
+    public abstract void deleteById(Long id);
 }

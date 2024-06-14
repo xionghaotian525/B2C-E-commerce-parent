@@ -41,4 +41,10 @@ public class BrandServiceImpl implements BrandService {
     public void updateById(Brand brand) {
         brandMapper.updateById(brand);
     }
+
+    //逻辑删除品牌
+    @Override
+    public void deleteById(Long id) {
+        brandMapper.deleteById(id);
+    }
 }

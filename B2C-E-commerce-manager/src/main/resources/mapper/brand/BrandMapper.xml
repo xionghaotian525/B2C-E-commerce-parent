@@ -49,4 +49,13 @@
         where
         id = #{id}
     </update>
+
+    <!--逻辑删除品牌-->
+    <update id="deleteById">
+        update brand set
+             update_time = now() ,
+             is_deleted = 1
+        where
+            id = #{id}
+    </update>
 </mapper>
