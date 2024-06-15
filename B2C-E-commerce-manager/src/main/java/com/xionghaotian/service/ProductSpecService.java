@@ -14,4 +14,6 @@ public interface ProductSpecService {
     public abstract PageInfo<ProductSpec> findByPage(Integer page, Integer limit);
 
     public abstract void save(ProductSpec productSpec);
+
+    public abstract void updateById(ProductSpec productSpec);
 }

@@ -33,4 +33,17 @@
              0
         )
     </insert>
+
+    <update id="updateById" >
+        update product_spec set
+        <if test="specName != null and specName != ''">
+            spec_name = #{specName},
+        </if>
+        <if test="specValue != null and specValue != ''">
+            spec_value = #{specValue},
+        </if>
+        update_time =  now()
+        where
+        id = #{id}
+    </update>
 </mapper>

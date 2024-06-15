@@ -35,4 +35,9 @@ public class ProductSpecServiceImpl implements ProductSpecService {
         productSpecMapper.save(productSpec) ;
     }
 
+    @Override
+    public void updateById(ProductSpec productSpec) {
+        productSpecMapper.updateById(productSpec) ;
+    }
+
 }

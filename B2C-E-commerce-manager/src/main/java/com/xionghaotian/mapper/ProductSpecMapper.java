@@ -17,4 +17,6 @@ public interface ProductSpecMapper {
     public abstract List<ProductSpec> findByPage();
 
     public abstract void save(ProductSpec productSpec);
+
+    public abstract void updateById(ProductSpec productSpec);
 }

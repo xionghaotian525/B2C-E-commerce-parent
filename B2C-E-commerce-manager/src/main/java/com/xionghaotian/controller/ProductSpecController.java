@@ -37,4 +37,10 @@ public class ProductSpecController {
         return Result.build(null , ResultCodeEnum.SUCCESS) ;
     }
 
+    @Operation(summary = "修改商品规格接口")
+    @PutMapping("/updateById")
+    public Result updateById(@RequestBody ProductSpec productSpec) {
+        productSpecService.updateById(productSpec);
+        return Result.build(null , ResultCodeEnum.SUCCESS) ;
+    }
 }
