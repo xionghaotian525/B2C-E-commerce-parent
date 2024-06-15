@@ -8,10 +8,7 @@ import com.xionghaotian.vo.common.Result;
 import com.xionghaotian.vo.common.ResultCodeEnum;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @ClassName ProductController
@@ -32,6 +29,13 @@ public class ProductController {
     public Result<PageInfo<Product>> findByPage(@PathVariable Integer page, @PathVariable Integer limit, ProductDto productDto) {
         PageInfo<Product> pageInfo = productService.findByPage(page, limit, productDto);
         return Result.build(pageInfo , ResultCodeEnum.SUCCESS) ;
+    }
+
+    @Operation(summary = "保存商品信息接口")
+    @PostMapping("/save")
+    public Result save(@RequestBody Product product) {
+        productService.save(product);
+        return Result.build(null , ResultCodeEnum.SUCCESS) ;
     }
 
 }
