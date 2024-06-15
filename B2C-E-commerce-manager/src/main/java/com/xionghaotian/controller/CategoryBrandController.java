@@ -37,4 +37,11 @@ public class CategoryBrandController {
         categoryBrandService.save(categoryBrand);
         return Result.build(null , ResultCodeEnum.SUCCESS) ;
     }
+
+    @Operation(summary = "修改分类品牌接口")
+    @PutMapping("updateById")
+    public Result updateById(@RequestBody CategoryBrand categoryBrand) {
+        categoryBrandService.updateById(categoryBrand);
+        return Result.build(null , ResultCodeEnum.SUCCESS) ;
+    }
 }

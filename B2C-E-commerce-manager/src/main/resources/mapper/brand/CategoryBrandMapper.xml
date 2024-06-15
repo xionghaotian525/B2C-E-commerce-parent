@@ -52,4 +52,18 @@
                      0
                  )
     </insert>
+
+    <!--修改分类品牌信息-->
+    <update id="updateById" >
+        update category_brand set
+        <if test="brandId != null and brandId != ''">
+            brand_id = #{brandId},
+        </if>
+        <if test="categoryId != null and categoryId != ''">
+            category_id = #{categoryId},
+        </if>
+        update_time =  now()
+        where
+        id = #{id}
+    </update>
 </mapper>

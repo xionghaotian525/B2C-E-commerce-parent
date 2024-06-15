@@ -15,4 +15,6 @@ public interface CategoryBrandService {
     public abstract PageInfo<CategoryBrand> findByPage(Integer page, Integer limit, CategoryBrandDto CategoryBrandDto);
 
     public abstract void save(CategoryBrand categoryBrand);
+
+    public abstract void updateById(CategoryBrand categoryBrand);
 }

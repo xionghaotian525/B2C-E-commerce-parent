@@ -18,4 +18,6 @@ public interface CategoryBrandMapper {
     public abstract List<CategoryBrand> findByPage(CategoryBrandDto CategoryBrandDto);
 
     public abstract void save(CategoryBrand categoryBrand);
+
+    public abstract void updateById(CategoryBrand categoryBrand);
 }

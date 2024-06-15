@@ -36,4 +36,9 @@ public class CategoryBrandServiceImpl implements CategoryBrandService {
         categoryBrandMapper.save(categoryBrand) ;
     }
 
+    @Override
+    public void updateById(CategoryBrand categoryBrand) {
+        categoryBrandMapper.updateById(categoryBrand);
+    }
+
 }
