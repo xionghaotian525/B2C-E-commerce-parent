@@ -21,4 +21,7 @@ public interface BrandMapper {
     public abstract void updateById(Brand brand);
 
     public abstract void deleteById(Long id);
+
+    //分类品牌管理-查询所有品牌
+    public abstract List<Brand> findAll();
 }

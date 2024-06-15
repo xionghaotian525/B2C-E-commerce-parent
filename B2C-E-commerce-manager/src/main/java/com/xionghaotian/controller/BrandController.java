@@ -9,6 +9,8 @@ import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /**
  * @ClassName BrandController
  * @Description 管理员端-商品管理-品牌管理-逻辑控制层
@@ -49,5 +51,12 @@ public class BrandController {
     public Result deleteById(@PathVariable Long id) {
         brandService.deleteById(id);
         return Result.build(null , ResultCodeEnum.SUCCESS) ;
+    }
+
+    @Operation(summary = "查询所有品牌接口")
+    @GetMapping("/findAll")
+    public Result findAll() {
+        List<Brand> list = brandService.findAll();
+        return Result.build(list , ResultCodeEnum.SUCCESS) ;
     }
 }

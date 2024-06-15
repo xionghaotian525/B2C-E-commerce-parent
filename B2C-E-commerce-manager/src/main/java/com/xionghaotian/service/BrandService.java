@@ -3,6 +3,8 @@ package com.xionghaotian.service;
 import com.github.pagehelper.PageInfo;
 import com.xionghaotian.entity.product.Brand;
 
+import java.util.List;
+
 /**
  * @ClassName BrandService
  * @Description 管理员端-商品管理-品牌管理-服务层接口
@@ -18,4 +20,7 @@ public interface BrandService {
     public abstract void updateById(Brand brand);
 
     public abstract void deleteById(Long id);
+
+    //分类品牌管理-查询所有品牌
+    public abstract List<Brand> findAll();
 }

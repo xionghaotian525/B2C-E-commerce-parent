@@ -47,4 +47,10 @@ public class BrandServiceImpl implements BrandService {
     public void deleteById(Long id) {
         brandMapper.deleteById(id);
     }
+
+    //分类品牌管理-查询所有品牌
+    @Override
+    public List<Brand> findAll() {
+        return brandMapper.findAll();
+    }
 }
