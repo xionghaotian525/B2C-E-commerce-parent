@@ -55,4 +55,11 @@
         where
             id = #{id}
     </update>
+
+    <!--在管理员端-商品管理-商品列表管理-添加功能中，查询所有商品规格-->
+    <select id="findAll" resultMap="productSpecMap">
+        select <include refid="columns" />
+        from product_spec
+        order by id desc
+    </select>
 </mapper>

@@ -9,6 +9,8 @@ import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /**
  * @ClassName ProductSpecController
  * @Description 管理员端-商品管理-商品规格管理-逻辑控制层
@@ -49,5 +51,13 @@ public class ProductSpecController {
     public Result removeById(@PathVariable Long id) {
         productSpecService.deleteById(id);
         return Result.build(null , ResultCodeEnum.SUCCESS) ;
+    }
+
+    //管理员端-商品管理-商品列表管理-添加功能-查询商品规格接口
+    @Operation(summary = "查询商品规格接口")
+    @GetMapping("/findAll")
+    public Result findAll() {
+        List<ProductSpec> list = productSpecService.findAll();
+        return Result.build(list , ResultCodeEnum.SUCCESS) ;
     }
 }
