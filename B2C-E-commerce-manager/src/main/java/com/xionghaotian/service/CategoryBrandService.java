@@ -2,7 +2,10 @@ package com.xionghaotian.service;
 
 import com.github.pagehelper.PageInfo;
 import com.xionghaotian.dto.product.CategoryBrandDto;
+import com.xionghaotian.entity.product.Brand;
 import com.xionghaotian.entity.product.CategoryBrand;
+
+import java.util.List;
 
 /**
  * @ClassName CategoryBrandService
@@ -19,4 +22,7 @@ public interface CategoryBrandService {
     public abstract void updateById(CategoryBrand categoryBrand);
 
     public abstract void deleteById(Long id);
+
+    //管理员端-商品管理-商品列表管理-添加商品-根据分类id查询品牌列表
+    public abstract List<Brand> findBrandByCategoryId(Long categoryId);
 }

@@ -3,6 +3,7 @@ package com.xionghaotian.service.impl;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.xionghaotian.dto.product.CategoryBrandDto;
+import com.xionghaotian.entity.product.Brand;
 import com.xionghaotian.entity.product.CategoryBrand;
 import com.xionghaotian.mapper.CategoryBrandMapper;
 import com.xionghaotian.service.CategoryBrandService;
@@ -44,6 +45,11 @@ public class CategoryBrandServiceImpl implements CategoryBrandService {
     @Override
     public void deleteById(Long id) {
         categoryBrandMapper.deleteById(id);
+    }
+
+    @Override
+    public List<Brand> findBrandByCategoryId(Long categoryId) {
+        return categoryBrandMapper.findBrandByCategoryId(categoryId);
     }
 
 }

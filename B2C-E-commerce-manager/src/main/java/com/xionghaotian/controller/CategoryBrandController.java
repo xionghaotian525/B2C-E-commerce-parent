@@ -2,6 +2,7 @@ package com.xionghaotian.controller;
 
 import com.github.pagehelper.PageInfo;
 import com.xionghaotian.dto.product.CategoryBrandDto;
+import com.xionghaotian.entity.product.Brand;
 import com.xionghaotian.entity.product.CategoryBrand;
 import com.xionghaotian.service.CategoryBrandService;
 import com.xionghaotian.vo.common.Result;
@@ -9,6 +10,8 @@ import com.xionghaotian.vo.common.ResultCodeEnum;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * @ClassName CategoryBrandController
@@ -50,5 +53,12 @@ public class CategoryBrandController {
     public Result deleteById(@PathVariable Long id) {
         categoryBrandService.deleteById(id);
         return Result.build(null , ResultCodeEnum.SUCCESS) ;
+    }
+
+    @Operation(summary = "根据分类id查询品牌列表接口")
+    @GetMapping("/findBrandByCategoryId/{categoryId}")
+    public Result findBrandByCategoryId(@PathVariable Long categoryId) {
+        List<Brand> brandList =   categoryBrandService.findBrandByCategoryId(categoryId);
+        return Result.build(brandList , ResultCodeEnum.SUCCESS) ;
     }
 }
