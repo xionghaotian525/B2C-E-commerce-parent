@@ -43,4 +43,11 @@ public class ProductSpecController {
         productSpecService.updateById(productSpec);
         return Result.build(null , ResultCodeEnum.SUCCESS) ;
     }
+
+    @Operation(summary = "删除商品规格接口")
+    @DeleteMapping("/deleteById/{id}")
+    public Result removeById(@PathVariable Long id) {
+        productSpecService.deleteById(id);
+        return Result.build(null , ResultCodeEnum.SUCCESS) ;
+    }
 }

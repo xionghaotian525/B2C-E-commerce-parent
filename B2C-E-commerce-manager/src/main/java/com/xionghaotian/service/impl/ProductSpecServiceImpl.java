@@ -40,4 +40,9 @@ public class ProductSpecServiceImpl implements ProductSpecService {
         productSpecMapper.updateById(productSpec) ;
     }
 
+    @Override
+    public void deleteById(Long id) {
+        productSpecMapper.deleteById(id) ;
+    }
+
 }

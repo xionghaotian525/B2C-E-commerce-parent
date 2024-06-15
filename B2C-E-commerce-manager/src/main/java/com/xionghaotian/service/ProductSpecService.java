@@ -16,4 +16,6 @@ public interface ProductSpecService {
     public abstract void save(ProductSpec productSpec);
 
     public abstract void updateById(ProductSpec productSpec);
+
+    public abstract void deleteById(Long id);
 }
