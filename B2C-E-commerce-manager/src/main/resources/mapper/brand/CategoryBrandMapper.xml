@@ -66,4 +66,13 @@
         where
         id = #{id}
     </update>
+
+    <!--逻辑删除分类品牌信息-->
+    <update id="deleteById">
+        update category_brand set
+            update_time = now() ,
+            is_deleted = 1
+        where
+            id = #{id}
+    </update>
 </mapper>

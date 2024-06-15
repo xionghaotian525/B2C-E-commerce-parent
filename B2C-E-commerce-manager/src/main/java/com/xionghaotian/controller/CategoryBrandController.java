@@ -44,4 +44,11 @@ public class CategoryBrandController {
         categoryBrandService.updateById(categoryBrand);
         return Result.build(null , ResultCodeEnum.SUCCESS) ;
     }
+
+    @Operation(summary = "删除分类品牌接口")
+    @DeleteMapping("/deleteById/{id}")
+    public Result deleteById(@PathVariable Long id) {
+        categoryBrandService.deleteById(id);
+        return Result.build(null , ResultCodeEnum.SUCCESS) ;
+    }
 }

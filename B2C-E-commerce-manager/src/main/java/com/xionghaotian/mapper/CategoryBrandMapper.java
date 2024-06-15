@@ -20,4 +20,6 @@ public interface CategoryBrandMapper {
     public abstract void save(CategoryBrand categoryBrand);
 
     public abstract void updateById(CategoryBrand categoryBrand);
+
+    public abstract void deleteById(Long id);
 }
