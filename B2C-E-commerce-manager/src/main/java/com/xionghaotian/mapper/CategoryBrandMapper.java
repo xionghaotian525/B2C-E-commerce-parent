@@ -16,4 +16,6 @@ import java.util.List;
 @Mapper
 public interface CategoryBrandMapper {
     public abstract List<CategoryBrand> findByPage(CategoryBrandDto CategoryBrandDto);
+
+    public abstract void save(CategoryBrand categoryBrand);
 }

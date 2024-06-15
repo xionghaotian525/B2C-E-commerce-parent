@@ -13,4 +13,6 @@ import com.xionghaotian.entity.product.CategoryBrand;
  */
 public interface CategoryBrandService {
     public abstract PageInfo<CategoryBrand> findByPage(Integer page, Integer limit, CategoryBrandDto CategoryBrandDto);
+
+    public abstract void save(CategoryBrand categoryBrand);
 }

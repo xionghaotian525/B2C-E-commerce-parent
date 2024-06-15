@@ -6,11 +6,9 @@ import com.xionghaotian.entity.product.CategoryBrand;
 import com.xionghaotian.service.CategoryBrandService;
 import com.xionghaotian.vo.common.Result;
 import com.xionghaotian.vo.common.ResultCodeEnum;
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @ClassName CategoryBrandController
@@ -26,9 +24,17 @@ public class CategoryBrandController {
     @Autowired
     private CategoryBrandService categoryBrandService ;
 
+    @Operation(summary = "分页查询分类品牌接口")
     @GetMapping("/{page}/{limit}")
     public Result<PageInfo<CategoryBrand>> findByPage(@PathVariable Integer page, @PathVariable Integer limit, CategoryBrandDto CategoryBrandDto) {
         PageInfo<CategoryBrand> pageInfo = categoryBrandService.findByPage(page, limit, CategoryBrandDto);
         return Result.build(pageInfo , ResultCodeEnum.SUCCESS) ;
+    }
+
+    @Operation(summary = "添加分类品牌接口")
+    @PostMapping("/save")
+    public Result save(@RequestBody CategoryBrand categoryBrand) {
+        categoryBrandService.save(categoryBrand);
+        return Result.build(null , ResultCodeEnum.SUCCESS) ;
     }
 }
