@@ -16,4 +16,21 @@
         order by id desc
     </select>
 
+    <insert id="save">
+        insert into product_spec (
+            id,
+            spec_name,
+            spec_value,
+            create_time,
+            update_time,
+            is_deleted
+        ) values (
+             #{id},
+             #{specName},
+             #{specValue},
+             now(),
+             now(),
+             0
+        )
+    </insert>
 </mapper>

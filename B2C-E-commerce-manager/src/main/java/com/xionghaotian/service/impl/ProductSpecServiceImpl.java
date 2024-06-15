@@ -30,4 +30,9 @@ public class ProductSpecServiceImpl implements ProductSpecService {
         return new PageInfo<>(productSpecList);
     }
 
+    @Override
+    public void save(ProductSpec productSpec) {
+        productSpecMapper.save(productSpec) ;
+    }
+
 }

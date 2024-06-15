@@ -12,4 +12,6 @@ import com.xionghaotian.entity.product.ProductSpec;
  */
 public interface ProductSpecService {
     public abstract PageInfo<ProductSpec> findByPage(Integer page, Integer limit);
+
+    public abstract void save(ProductSpec productSpec);
 }
