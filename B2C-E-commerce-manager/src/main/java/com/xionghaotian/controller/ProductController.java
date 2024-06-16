@@ -62,4 +62,11 @@ public class ProductController {
         productService.deleteById(id);
         return Result.build(null , ResultCodeEnum.SUCCESS) ;
     }
+
+    @Operation(summary = "修改商品审核状态接口")
+    @GetMapping("/updateAuditStatus/{id}/{auditStatus}")
+    public Result updateAuditStatus(@PathVariable Long id, @PathVariable Integer auditStatus) {
+        productService.updateAuditStatus(id, auditStatus);
+        return Result.build(null , ResultCodeEnum.SUCCESS) ;
+    }
 }

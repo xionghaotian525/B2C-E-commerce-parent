@@ -22,4 +22,7 @@ public interface ProductService {
 
     //逻辑删除
     public abstract void deleteById(Long id);
+
+    //商品审核
+    public abstract void updateAuditStatus(Long id, Integer auditStatus);
 }
