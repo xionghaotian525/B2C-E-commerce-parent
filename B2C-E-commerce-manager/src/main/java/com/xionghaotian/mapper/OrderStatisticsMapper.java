@@ -1,7 +1,10 @@
 package com.xionghaotian.mapper;
 
+import com.xionghaotian.dto.order.OrderStatisticsDto;
 import com.xionghaotian.entity.order.OrderStatistics;
 import org.apache.ibatis.annotations.Mapper;
+
+import java.util.List;
 
 /**
  * @ClassName OrderStatisticsMapper
@@ -13,4 +16,7 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface OrderStatisticsMapper {
     public abstract void insert(OrderStatistics orderStatistics);
+
+    //统计查询
+    List<OrderStatistics> selectList(OrderStatisticsDto orderStatisticsDto);
 }
