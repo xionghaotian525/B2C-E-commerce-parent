@@ -15,4 +15,7 @@ public interface ProductService {
     public abstract PageInfo<Product> findByPage(Integer page, Integer limit, ProductDto productDto);
 
     public abstract void save(Product product);
+
+    //修改功能
+    public abstract Product getById(Long id);
 }

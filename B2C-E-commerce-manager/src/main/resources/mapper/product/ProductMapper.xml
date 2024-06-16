@@ -77,4 +77,19 @@
              0
          )
     </insert>
+
+    <!--修改功能-->
+    <select id="selectById" resultMap="productMap">
+        select
+            p.id, p.name , p.brand_id , p.category1_id , p.category2_id , p.category3_id, p.unit_name,
+            p.slider_urls , p.spec_value , p.status , p.audit_status , p.audit_message , p.create_time , p.update_time , p.is_deleted ,
+            b.name brandName , c1.name category1Name , c2.name category2Name , c2.name category3Name
+        from product p
+                 LEFT JOIN brand b on b.id = p.brand_id
+                 LEFT JOIN category c1 on c1.id = p.category1_id
+                 LEFT JOIN category c2 on c2.id = p.category2_id
+                 LEFT JOIN category c3 on c3.id = p.category3_id
+        where
+            p.id = #{id}
+    </select>
 </mapper>

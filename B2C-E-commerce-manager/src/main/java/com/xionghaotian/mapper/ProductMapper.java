@@ -18,4 +18,7 @@ public interface ProductMapper {
     public abstract List<Product> findByPage(ProductDto productDto);
 
     public abstract void save(Product product);
+
+    //修改功能
+    public abstract Product selectById(Long id);
 }

@@ -38,4 +38,11 @@ public class ProductController {
         return Result.build(null , ResultCodeEnum.SUCCESS) ;
     }
 
+    //修改功能-查询商品信息
+    @Operation(summary = "根据id查询商品信息接口")
+    @GetMapping("/getById/{id}")
+    public Result<Product> getById(@PathVariable Long id) {
+        Product product = productService.getById(id);
+        return Result.build(product , ResultCodeEnum.SUCCESS) ;
+    }
 }
