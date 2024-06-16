@@ -15,4 +15,5 @@ public interface ProductDetailsMapper {
     public abstract void save(ProductDetails productDetails);
 
     public abstract ProductDetails selectByProductId(Long id);
+    public abstract void updateById(ProductDetails productDetails);
 }

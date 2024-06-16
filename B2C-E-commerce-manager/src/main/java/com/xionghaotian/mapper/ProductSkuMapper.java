@@ -17,4 +17,5 @@ public interface ProductSkuMapper {
     public abstract void save(ProductSku productSku);
 
     public abstract List<ProductSku> selectByProductId(Long id);
+    public abstract  void updateById(ProductSku productSku);
 }

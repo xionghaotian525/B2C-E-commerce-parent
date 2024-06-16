@@ -95,4 +95,22 @@ public class ProductServiceImpl implements ProductService {
         return product;
     }
 
+    @Transactional
+    @Override
+    public void updateById(Product product) {
+        // 修改商品基本数据
+        productMapper.updateById(product);
+
+        // 修改商品的sku数据
+        List<ProductSku> productSkuList = product.getProductSkuList();
+        productSkuList.forEach(productSku -> {
+            productSkuMapper.updateById(productSku);
+        });
+
+        // 修改商品的详情数据
+        ProductDetails productDetails = productDetailsMapper.selectByProductId(product.getId());
+        productDetails.setImageUrls(product.getDetailsImageUrls());
+        productDetailsMapper.updateById(productDetails);
+    }
+
 }

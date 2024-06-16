@@ -32,4 +32,16 @@
         product_id = #{productId}
     </select>
 
+    <update id="updateById" >
+        update product_details set
+        <if test="productId != null and productId != ''">
+            product_id = #{productId},
+        </if>
+        <if test="imageUrls != null and imageUrls != ''">
+            image_urls = #{imageUrls},
+        </if>
+        update_time =  now()
+        where
+        id = #{id}
+    </update>
 </mapper>

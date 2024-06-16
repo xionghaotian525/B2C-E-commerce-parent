@@ -21,4 +21,5 @@ public interface ProductMapper {
 
     //修改功能
     public abstract Product selectById(Long id);
+    public abstract  void updateById(Product product);
 }

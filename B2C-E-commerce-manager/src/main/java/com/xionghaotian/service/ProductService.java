@@ -18,4 +18,5 @@ public interface ProductService {
 
     //修改功能
     public abstract Product getById(Long id);
+    public abstract void updateById(Product product);
 }
