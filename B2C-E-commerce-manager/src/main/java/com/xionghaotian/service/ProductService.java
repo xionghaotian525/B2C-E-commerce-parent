@@ -25,4 +25,7 @@ public interface ProductService {
 
     //商品审核
     public abstract void updateAuditStatus(Long id, Integer auditStatus);
+
+    //商品上下架
+    public abstract void updateStatus(Long id, Integer Status);
 }

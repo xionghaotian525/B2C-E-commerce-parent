@@ -135,4 +135,16 @@ public class ProductServiceImpl implements ProductService {
         productMapper.updateById(product);
     }
 
+    @Override
+    public void updateStatus(Long id, Integer status) {
+        Product product = new Product();
+        product.setId(id);
+        if(status == 1) {
+            product.setStatus(1);
+        } else {
+            product.setStatus(-1);
+        }
+        productMapper.updateById(product);
+    }
+
 }
