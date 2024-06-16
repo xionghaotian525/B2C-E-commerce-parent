@@ -19,4 +19,7 @@ public interface ProductService {
     //修改功能
     public abstract Product getById(Long id);
     public abstract void updateById(Product product);
+
+    //逻辑删除
+    public abstract void deleteById(Long id);
 }

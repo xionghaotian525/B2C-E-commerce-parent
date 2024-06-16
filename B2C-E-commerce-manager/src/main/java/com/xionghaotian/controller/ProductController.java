@@ -54,4 +54,12 @@ public class ProductController {
         productService.updateById(product);
         return Result.build(null , ResultCodeEnum.SUCCESS) ;
     }
+
+    //删除功能
+    @Operation(summary = "删除商品信息接口")
+    @DeleteMapping("/deleteById/{id}")
+    public Result deleteById(@Parameter(name = "id", description = "商品id", required = true) @PathVariable Long id) {
+        productService.deleteById(id);
+        return Result.build(null , ResultCodeEnum.SUCCESS) ;
+    }
 }
