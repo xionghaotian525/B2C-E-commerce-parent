@@ -7,6 +7,7 @@ import com.xionghaotian.service.SysRoleService;
 import com.xionghaotian.vo.common.Result;
 import com.xionghaotian.vo.common.ResultCodeEnum;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,7 +20,7 @@ import java.util.Map;
  * @Date 2024年06月03日 20:14
  * @Version 1.0
  */
-
+@Tag(name = "管理员端-权限管理-角色管理")
 @RestController
 @RequestMapping(value = "/admin/system/sysRole")
 public class SysRoleController {

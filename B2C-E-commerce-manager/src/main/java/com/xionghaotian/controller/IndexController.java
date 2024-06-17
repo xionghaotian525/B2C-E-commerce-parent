@@ -27,7 +27,7 @@ import java.util.List;
  * @Version 1.0
  */
 
-@Tag(name = "用户接口")
+@Tag(name = "管理员端-用户接口")
 @RestController
 @RequestMapping(value = "/admin/system/index")
 public class IndexController {

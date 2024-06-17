@@ -8,6 +8,7 @@ import com.xionghaotian.vo.common.Result;
 import com.xionghaotian.vo.common.ResultCodeEnum;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.*;
  * @Date 2024年06月15日 19:50
  * @Version 1.0
  */
+@Tag(name = "管理员端-商品管理-商品列表管理")
 @RestController
 @RequestMapping(value="/admin/product/product")
 public class ProductController {

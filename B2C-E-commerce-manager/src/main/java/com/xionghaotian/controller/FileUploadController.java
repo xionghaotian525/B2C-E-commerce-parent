@@ -3,6 +3,7 @@ package com.xionghaotian.controller;
 import com.xionghaotian.service.FileUploadService;
 import com.xionghaotian.vo.common.Result;
 import com.xionghaotian.vo.common.ResultCodeEnum;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
  * @Date 2024年06月09日 16:38
  * @Version 1.0
  */
+@Tag(name = "文件上传接口")
 @RestController
 @RequestMapping("/admin/system")
 public class FileUploadController {
