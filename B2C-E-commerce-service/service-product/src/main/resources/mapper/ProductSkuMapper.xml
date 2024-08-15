@@ -6,10 +6,26 @@
     <resultMap id="productSkuMap" type="com.xionghaotian.entity.product.ProductSku" autoMapping="true">
     </resultMap>
 
+
     <!-- 用于select查询公用抽取的列 -->
     <sql id="columns">
         id,sku_code,sku_name,product_id,thumb_img,sale_price,market_price,cost_price,stock_num,sale_num,sku_spec,weight,volume,status,create_time,update_time,is_deleted
     </sql>
+
+    <select id="findByProductId" resultMap="productSkuMap">
+        select <include refid="columns" />
+        from product_sku
+        where
+        product_id = #{productId}
+    </select>
+
+
+    <select id="getById" resultMap="productSkuMap">
+        select <include refid="columns" />
+        from product_sku
+        where
+        id = #{id}
+    </select>
 
     <select id="findProductSkuBySale" resultMap="productSkuMap">
         select
